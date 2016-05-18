@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alpha.smart.factorytest.fragments.GsensorFragment">
+
+    <TextView
+        android:id="@+id/detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/margin_left"
+        android:layout_marginTop="@dimen/margin_top"
+        android:text="@string/gsensor_detail" />
+
+    <GridLayout
+        android:id="@+id/value_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/detail"
+        android:layout_below="@id/detail"
+        android:layout_marginTop="11dp"
+        android:columnCount="2">
+
+        <TextView
+            android:id="@+id/x_cord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/x_cord" />
+
+        <TextView
+            android:id="@+id/x_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail"
+            android:layout_marginLeft="5dp"
+            android:text="-234234g" />
+
+        <TextView
+            android:id="@+id/y_cord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/y_cord" />
+
+        <TextView
+            android:id="@+id/y_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="-234234g" />
+
+        <TextView
+            android:id="@+id/z_cord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/z_cord" />
+
+        <TextView
+            android:id="@+id/z_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="-234234g" />
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/value_layout"
+        android:layout_alignLeft="@id/detail"
+        android:layout_marginTop="15dp"
+        android:columnCount="4">
+        <CheckBox android:id="@+id/x_check"/>
+        <TextView android:text="@string/x_fail"/>
+        <CheckBox android:id="@+id/y_check"/>
+        <TextView android:text="@string/y_fail"/>
+        <CheckBox android:id="@+id/z_check"/>
+        <TextView android:text="@string/z_fail"/>
+    </GridLayout>
+</RelativeLayout>

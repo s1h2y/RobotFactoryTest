@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alpha.smart.factorytest.fragments.StandbyFragment">
+
+<ImageView
+    android:id="@+id/buttons"
+    android:layout_width="220dp"
+    android:layout_height="180dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginLeft="35dp"
+    android:layout_marginTop="25dp"
+    android:background="@drawable/standby_button"/>
+    <LinearLayout
+        android:id="@+id/check_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/buttons"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/standby_fail"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/buttons"
+        android:layout_alignLeft="@id/check_layout"
+        android:text="@string/touch_power"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttons"
+        android:layout_marginTop="50dp"
+        android:layout_alignLeft="@id/buttons"
+        android:text="@string/standby_detail"/>
+</RelativeLayout>

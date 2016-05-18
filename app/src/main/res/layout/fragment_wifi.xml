@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    tools:context="com.alpha.smart.factorytest.fragments.WifiFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/wifi_detail"
+        android:textColor="@color/text_c"
+        android:textSize="@dimen/text_c" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/list_radius_corner_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/wifi"
+            android:textColor="@color/text_b"
+            android:textSize="@dimen/text_b" />
+
+        <ToggleButton
+            android:id="@+id/switch_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="9dp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/wifi_fail"
+        android:textColor="@color/text_c"
+        android:textSize="@dimen/text_c" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/list_radius_corner_background"
+        android:columnCount="4">
+
+        <CheckBox
+            android:id="@+id/check_no_network"
+            android:layout_marginLeft="21dp" />
+
+        <TextView
+            android:text="@string/search_wifi_fail"
+            android:textColor="@color/text_b" />
+
+        <CheckBox
+            android:id="@+id/check_connect_fail"
+            android:layout_marginLeft="60dp" />
+
+        <TextView
+            android:text="@string/connect_wifi_fail"
+            android:textColor="@color/text_b" />
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="@string/choose_net"
+        android:textColor="@color/text_c"
+        android:textSize="@dimen/text_c" />
+
+
+    <ListView
+        android:id="@+id/wifi_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/list_radius_corner_background"></ListView>
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="headlight_origin">#4FA5F1</color>
+    <color name="headlight_red">#F97664</color>
+    <color name="headlight_green">#2CBA16</color>
+    <color name="rtc_red">#FD5A54</color>
+    <color name="top_panel">#498bf3</color>
+    <color name="text_a">#FFFFFF</color>
+    <color name="text_b">#343434</color>
+    <color name="text_c">#646464</color>
+    <color name="bottom_background">#efeff0</color>
+    <color name="main_start_button">#2CBA16</color>
+    <color name="main_customer_time">#4BB2F8</color>
+    <color name="color01">#478AF3</color>
+    <color name="color02">#EFEFF0</color>
+    <color name="color03">#D8D8D8</color>
+    <color name="list_background_grey">#EFEFEF</color>
+</resources>

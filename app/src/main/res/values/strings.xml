@@ -1,0 +1,173 @@
+<resources>
+    <string name="app_name">FactoryTest</string>
+    <string name="main_top_text_content">FactoryTest Application</string>
+    <string name="main_bottom_left_text_string">model:jiajia robot J01</string>
+    <string name="main_start_text_string">Start Test</string>
+    <!-- main bottom right -->
+    <string name="main_web_string">Our Website</string>
+    <string name="main_web_describe_string">Login http://www.oduola.com to get more.</string>
+    <string name="main_customer_service_string">Customer Service</string>
+    <string name="main_customer_service_detail">Dial 400-666-5438 to customer service</string>
+    <string name="main_customer_service_time">9:00 - 19:00 workday</string>
+    <string name="main_weixin_public">WeChat public number</string>
+    <string name="main_weixin_detail">follow WebChat to contract online customer service</string>
+    <string name="main_test_pass">test pass</string>
+    <string name="main_test_fail">test fail, know more></string>
+    <!-- test activity -->
+    <string name="test_title">Test Project</string>
+    <string name="list_version">version</string>
+    <string name="list_lcd">LCD</string>
+    <string name="list_button">buttons</string>
+    <string name="list_lightness">lightness</string>
+    <string name="list_touch">touch</string>
+    <string name="list_speaker">speaker</string>
+    <string name="list_mic">microphone</string>
+    <string name="list_battery">battery</string>
+    <string name="list_standby">standby</string>
+    <string name="list_wifi">wifi</string>
+    <string name="list_camera">camera</string>
+    <string name="list_head_light">head light</string>
+    <string name="list_head_shake">head shake</string>
+    <string name="list_body_shake">body shake</string>
+    <string name="list_hand">hand</string>
+    <string name="list_gsensor">gsensor</string>
+    <string name="list_rtc">RTC</string>
+    <string name="list_ddr">DDR</string>
+    <string name="list_storage">storage</string>
+    <string name="list_monitor_light">monitor light</string>
+
+    <!-- version items -->
+    <string name="item_version">system version</string>
+    <string name="seq">seqnumber</string>
+    <string name="lcd_manufacturer">LCD manufacturer</string>
+    <string name="ddr_manufacturer">DDR manufacturer</string>
+    <string name="soc_manufacturer">Soc</string>
+
+    <string name="start_test">start test</string>
+    <!-- lcd -->
+    <string name="lcd_test_tips">click start test to test screen, check if found dead dot.</string>
+    <string name="lcd_test_fail">found dead dot</string>
+
+    <!-- buttons -->
+    <string name="buttons_test_detail">click buttons on robot.\ncheck bad buttons</string>
+    <string name="button_volume_up_fail">volume up bad</string>
+    <string name="button_volume_down_fail">volumd down bad</string>
+    <string name="button_record_fail">record bad</string>
+    <string name="button_back_fail">back bad</string>
+    <string name="button_home_fail">Home bad</string>
+    <string name="button_power_fail">power bad</string>
+
+    <!-- lightness -->
+    <string name="lightness_detail">click buttons to test lightness, check if no change.</string>
+    <string name="cur_lightness">current lightness=</string>
+    <string name="lightness_fail">lightness no change</string>
+
+    <!-- touch -->
+    <string name="touch_detail">click to start touch screen.\ndraw line on screen, click back to quit</string>
+    <string name="manufacturer">manufacturer</string>
+    <string name="lcd_ic">IC model</string>
+    <string name="touch_version">touch version</string>
+    <string name="touch_fail">draw line fail</string>
+
+    <!-- speaker -->
+    <string name="speaker_detail">click to test sound.\ncheck bad item.</string>
+    <string name="ready_play">ready to play...</string>
+    <string name="sound_playing">sound playing...</string>
+    <string name="sound_play_done">sound play done</string>
+    <string name="no_sound">no sound</string>
+    <string name="boom">bad sound</string>
+    <string name="sound_no_change">volume no change</string>
+    <string name="play_sound">play sound</string>
+
+    <!-- mic -->
+    <string name="mic_detail">touch start record.\n check if record fail.</string>
+    <string name="ready_rec">ready record...</string>
+    <string name="rec_fail">record fail</string>
+    <string name="start_rec">start record</string>
+
+    <!-- battery -->
+    <string name="battery_volume">battery volume</string>
+    <string name="battery_sta">battery status</string>
+    <string name="battery_voltage">battery voltage</string>
+    <string name="battery_temp">battery temperature</string>
+
+    <!-- standby -->
+    <string name="standby_fail">standby fail</string>
+    <string name="touch_power">click power</string>
+    <string name="standby_detail">click power to start standby test.\ncheck if test fail</string>
+
+    <!-- wifi -->
+    <string name="wifi_detail">easy to use default password:12345678\nMAC:</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="choose_net">select network...</string>
+    <string name="wifi_fail">check if search network fail or connect fail.</string>
+    <string name="search_wifi_fail">no network</string>
+    <string name="connect_wifi_fail">connect fail</string>
+    <string name="connected">connected</string>
+    <string name="connecting">connecting</string>
+
+    <!-- camera -->
+    <string name="camera_detail">click to start camera test.\ncheck if no image.</string>
+    <string name="camera_fail">no image</string>
+
+    <!-- head light -->
+    <string name="origin_color">origin color</string>
+    <string name="red_color">red color</string>
+    <string name="green_color">green color</string>
+    <string name="head_light_detail">switch color light.\ncheck fail item.</string>
+    <string name="origin_fail">origin fail</string>
+    <string name="red_fail">red fail</string>
+    <string name="green_fail">green fail</string>
+
+    <!-- head shake -->
+    <string name="head_shake_detail">put robot horizontal.\nclick to test up down shake head.\ncheck if fail.</string>
+    <string name="head_shake_fail">up down head shake fail</string>
+
+    <!-- body shake -->
+    <string name="body_shake_detail">put robot horizontal.\nclick to test left right shake body.\ncheck if fail.</string>
+    <string name="body_shake_fail">left right shake body fail</string>
+
+    <!-- hand -->
+    <string name="hand_detail">pinch robot hands separately.\n check fail item.</string>
+    <string name="left_hand_fail">left hand fail</string>
+    <string name="right_hand_fail">right hand fail</string>
+
+    <!-- gsensor -->
+    <string name="gsensor_detail">move robots every direction to see values change.\ncheck fail item.</string>
+    <string name="x_cord">Xcord:</string>
+    <string name="y_cord">Ycord:</string>
+    <string name="z_cord">Zcord:</string>
+    <string name="x_fail">Xcord fail</string>
+    <string name="y_fail">Ycord fail</string>
+    <string name="z_fail">Zcord fail</string>
+
+    <!-- rtc -->
+    <string name="rtc_detail">check if no change</string>
+    <string name="rtc_fail">time no change</string>
+
+    <!-- ddr -->
+    <string name="ddr_detail">clikc to test DDR, test will cost no more than 10 seconds.\ncheck if over 10 seconds.</string>
+    <string name="ready_test">ready test...</string>
+    <string name="ddr_testing">DDR testing...</string>
+    <string name="ddr_ok">DDR pass!</string>
+    <string name="ddr_fail">DDR fail!</string>
+
+    <!-- storage -->
+    <string name="system_total">system total</string>
+    <string name="system_used">system used</string>
+    <string name="system_avail">system available</string>
+    <string name="extern_total">external total</string>
+    <string name="extern_used">external used</string>
+    <string name="extern_avail">external available</string>
+
+    <!-- monitor light -->
+    <string name="monitor_detail">click to test monitor light.\ncheck if no light.</string>
+    <string name="monitor_fail">monitor light fail</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+
+
+</resources>

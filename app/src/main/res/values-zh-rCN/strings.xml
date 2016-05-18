@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">工厂测试</string>
+    <string name="main_top_text_content">自检（故障检查）专用程序</string>
+    <string name="main_bottom_left_text_string">型号：嘉佳机器人J01</string>
+    <string name="main_start_text_string">开始检测</string>
+    <!-- main bottom right -->
+    <string name="main_web_string">官方网站</string>
+    <string name="main_web_describe_string">你可以登陆官方网站http://www.oduola.com了解此产品的信息。</string>
+    <string name="main_customer_service_string">客户服务</string>
+    <string name="main_customer_service_detail">若有更多疑问，您可以拨打400-666-5438与客户服务部门联系。</string>
+    <string name="main_customer_service_time">9:00 - 19:00 周一至周日</string>
+    <string name="main_weixin_public">微信公众号</string>
+    <string name="main_weixin_detail">微信扫一扫，咨询在线客服</string>
+    <string name="main_test_pass">本机已通过检测</string>
+    <string name="main_test_fail">本机未通过检测，了解更多></string>
+    <!-- test activity -->
+    <string name="test_title">检测项目</string>
+    <string name="list_version">版本信息</string>
+    <string name="list_lcd">LCD</string>
+    <string name="list_button">按键</string>
+    <string name="list_lightness">亮度</string>
+    <string name="list_touch">触控</string>
+    <string name="list_speaker">扬声器</string>
+    <string name="list_mic">麦克风</string>
+    <string name="list_battery">电池电量</string>
+    <string name="list_standby">待机测试</string>
+    <string name="list_wifi">Wi-Fi测试</string>
+    <string name="list_camera">摄像头</string>
+    <string name="list_head_light">情绪灯</string>
+    <string name="list_head_shake">头部摆动</string>
+    <string name="list_body_shake">身体摆动</string>
+    <string name="list_hand">手部</string>
+    <string name="list_gsensor">重力传感器</string>
+    <string name="list_rtc">RTC</string>
+    <string name="list_ddr">DDR</string>
+    <string name="list_storage">存储空间</string>
+    <string name="list_monitor_light">监控指示灯</string>
+
+    <!-- version items -->
+    <string name="item_version">系统版本</string>
+    <string name="seq">序列号</string>
+    <string name="lcd_manufacturer">LCD厂商</string>
+    <string name="ddr_manufacturer">内存厂商</string>
+    <string name="soc_manufacturer">Soc</string>
+
+    <string name="start_test">开始检测</string>
+    <!-- lcd -->
+    <string name="lcd_test_tips">点击开始检测进入屏幕检测，如发现坏点，请打勾。</string>
+    <string name="lcd_test_fail">屏幕有坏点</string>
+
+    <!-- buttons -->
+    <string name="buttons_test_detail">请分别点击机器人身体上的按钮。\n如有按钮失灵，请在对应的按键上打勾。</string>
+    <string name="button_volume_up_fail">音量加失灵</string>
+    <string name="button_volume_down_fail">音量减失灵</string>
+    <string name="button_record_fail">录音按钮失灵</string>
+    <string name="button_back_fail">返回键失灵</string>
+    <string name="button_home_fail">Home键失灵</string>
+    <string name="button_power_fail">开关机按钮失灵</string>
+    
+    <!-- lightness -->
+    <string name="lightness_detail">请点击亮度加减按钮测试亮度，如无法调节屏幕亮度，请打勾。</string>
+    <string name="cur_lightness">当前屏幕亮度=</string>
+    <string name="lightness_fail">无法调节亮度</string>
+
+    <!-- touch -->
+    <string name="touch_detail">点击开始检测进入屏幕检测。\n请在屏幕上画直线，点击返回键退出检测。</string>
+    <string name="manufacturer">生产厂商：</string>
+    <string name="lcd_ic">IC型号：</string>
+    <string name="touch_version">固件版本：</string>
+    <string name="touch_fail">屏幕无法连续画直线</string>
+
+    <!-- speaker -->
+    <string name="speaker_detail">点击播放音频您会听到一段音频。\n如有对应问题，请打勾。</string>
+    <string name="ready_play">准备播放音频……</string>
+    <string name="sound_playing">正在播放音频……</string>
+    <string name="sound_play_done">播放音频完毕</string>
+    <string name="no_sound">无法听到声音</string>
+    <string name="boom">喇叭有爆音</string>
+    <string name="sound_no_change">声音没有大小变化</string>
+    <string name="play_sound">播放音频</string>
+
+    <!-- mic -->
+    <string name="mic_detail">轻触开始录音进入录音测试。\n如无法录音，请打勾。</string>
+    <string name="ready_rec">准备录音……</string>
+    <string name="rec_fail">无法录音</string>
+    <string name="start_rec">开始录音</string>
+    
+    <!-- battery -->
+    <string name="battery_volume">电池电量</string>
+    <string name="battery_sta">电池状态</string>
+    <string name="battery_voltage">电池实际电压</string>
+    <string name="battery_temp">电池实际温度</string>
+
+    <!-- standby -->
+    <string name="standby_fail">无法进入待机状态</string>
+    <string name="touch_power">点击开关按钮</string>
+    <string name="standby_detail">点击机器人身体的开关按钮进行待机/唤醒机器测试。\n如无法进入待机状态，请打勾。</string>
+    
+    <!-- wifi -->
+    <string name="wifi_detail">为简化测试，连接时一律使用默认密码：12345678\nMac地址：</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="choose_net">请选择网络……</string>
+    <string name="wifi_fail">如无法连接Wi-Fi或搜索不到信号，请打勾。</string>
+    <string name="search_wifi_fail">搜索不到Wi-Fi</string>
+    <string name="connect_wifi_fail">无法连接Wi-Fi</string>
+    <string name="connected">已连接</string>
+    <string name="connecting">正在连接</string>
+
+    <!-- camera -->
+    <string name="camera_detail">点击开始检测，查看屏幕是否能拍摄到图像。\n如无法看到图像，请打勾。</string>
+    <string name="camera_fail">无法看到图像</string>
+    
+    <!-- head light -->
+    <string name="origin_color">原色灯</string>
+    <string name="red_color">红色灯</string>
+    <string name="green_color">绿色灯</string>
+    <string name="head_light_detail">切换不同颜色，查看头部LED灯颜色的变化。\n如无法看到亮灯，请打勾。</string>
+    <string name="origin_fail">无法看到原色灯</string>
+    <string name="red_fail">无法看到红色灯</string>
+    <string name="green_fail">无法看到绿色灯</string>
+
+    <!-- head shake -->
+    <string name="head_shake_detail">请将机器人放置于平处。\n点击开始检测，查看机器人的头部是否可以上下摆动。\n如机器人头部无法上下摆动，请打勾。</string>
+    <string name="head_shake_fail">头部无法上下摆动</string>
+
+    <!-- body shake -->
+    <string name="body_shake_detail">请将机器人放置于平处。\n点击开始检测，查看机器人的身体是否可以左右摆动。\n如机器人身体无法左右摆动，请打勾。</string>
+    <string name="body_shake_fail">身体无法左右摆动</string>
+
+    <!-- hand -->
+    <string name="hand_detail">请分别捏捏机器人的左右手。\n如按钮没有反应，请打勾。</string>
+    <string name="left_hand_fail">左手失灵</string>
+    <string name="right_hand_fail">右手失灵</string>
+
+    <!-- gsensor -->
+    <string name="gsensor_detail">请向各个方向翻转机器人，并观察屏幕读数是否由发生变化。\n如在翻转过程中，读数没有发生变化，请打勾。</string>
+    <string name="x_cord">X轴：</string>
+    <string name="y_cord">Y轴：</string>
+    <string name="z_cord">Z轴：</string>
+    <string name="x_fail">X轴没有大小变化</string>
+    <string name="y_fail">Y轴没有大小变化</string>
+    <string name="z_fail">Z轴没有大小变化</string>
+
+    <!-- rtc -->
+    <string name="rtc_detail">请查看时间是否有发生变化。如时间没有发生变化，请打勾。</string>
+    <string name="rtc_fail">时间没有发生变化</string>
+
+    <!-- ddr -->
+    <string name="ddr_detail">点击开始检测，检测会在10秒内完成。\n若测试超过10秒，请打勾。</string>
+    <string name="ready_test">准备测试……</string>
+    <string name="ddr_testing">DDR测试中……</string>
+    <string name="ddr_ok">DDR测试成功！</string>
+    <string name="ddr_fail">DDR测试失败</string>
+
+    <!-- storage -->
+    <string name="system_total">系统盘总容量</string>
+    <string name="system_used">系统盘已用容量</string>
+    <string name="system_avail">系统盘可用容量</string>
+    <string name="extern_total">外部存储总容量</string>
+    <string name="extern_used">外部存储已用容量</string>
+    <string name="extern_avail">外部存储可用容量</string>
+
+    <!-- monitor light -->
+    <string name="monitor_detail">点击开始检测，查看监控指示灯是否亮灯。\n如监控指示灯没有亮灯，请打勾。</string>
+    <string name="monitor_fail">监控指示灯不亮</string>
+
+</resources>

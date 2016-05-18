@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alpha.smart.factorytest.fragments.LCDFragment">
+
+
+    <TextView
+        android:id="@+id/lcd_test_tips"
+        style="@style/Widget.TextView.StyleC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="69dp"
+        android:layout_marginTop="88dp"
+        android:text="@string/lcd_test_tips" />
+
+    <LinearLayout
+        android:id="@+id/lcd_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/lcd_test_tips"
+        android:layout_below="@id/lcd_test_tips"
+        android:layout_marginTop="58dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/lcd_result_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="Widget.MyCheckBox.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lcd_test_fail" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="401dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/lcd_result"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/button_long"
+        android:text="@string/start_test"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+</RelativeLayout>
