@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minHeight="@dimen/version_list_item_height"
-    android:gravity="bottom">
+    android:gravity="center">
 
     <TextView
-        android:id="@+id/version_item_key"
+        android:id="@+id/item_key"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/text_b"
@@ -14,7 +14,7 @@
         android:layout_alignParentLeft="true" />
 
     <TextView
-        android:id="@+id/version_item_value"
+        android:id="@+id/item_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/text_c"

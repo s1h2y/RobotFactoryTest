@@ -1,16 +1,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.alpha.smart.factorytest.fragments.VersionFragment">
+    android:layout_height="match_parent">
 
     <ListView
-        android:id="@+id/version_list"
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/version_list_margin_top"
+        android:layout_gravity="center_horizontal|top"
         android:layout_marginLeft="@dimen/version_list_margin_left"
         android:layout_marginRight="@dimen/version_list_margin_right"
-        android:layout_gravity="center_horizontal|top"></ListView>
+        android:layout_marginTop="@dimen/version_list_margin_top"></ListView>
 
 </FrameLayout>

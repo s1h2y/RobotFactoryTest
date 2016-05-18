@@ -50,4 +50,5 @@ public class Constant {
             new FragmentBean(R.drawable.list_monitor, R.string.list_monitor_light, "monitor light", MonitorFragment.class.getName()),
     };
 
+    public static int curLightness = 70;
 }

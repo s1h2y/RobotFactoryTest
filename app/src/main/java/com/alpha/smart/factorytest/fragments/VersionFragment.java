@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,21 +34,21 @@ public class VersionFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     ListView mList;
-    int verson_item_keys[] = {R.string.item_version, R.string.seq, R.string.lcd_manufacturer,
+    int item_keys[] = {R.string.item_version, R.string.seq, R.string.lcd_manufacturer,
             R.string.ddr_manufacturer, R.string.soc_manufacturer};
-    String version_item_values[] = new String[verson_item_keys.length];
+    String item_values[] = new String[item_keys.length];
 
-    class VersonAdapter extends BaseAdapter {
+    class MyAdapter extends BaseAdapter {
 
         LayoutInflater mInflater;
 
-        public VersonAdapter(LayoutInflater mInflater) {
+        public MyAdapter(LayoutInflater mInflater) {
             this.mInflater = mInflater;
         }
 
         @Override
         public int getCount() {
-            return verson_item_keys.length;
+            return item_keys.length;
         }
 
         @Override
@@ -66,16 +65,16 @@ public class VersionFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
             if (convertView == null) {
-                convertView = mInflater.inflate(R.layout.version_item, null);
+                convertView = mInflater.inflate(R.layout.display_list_item, null);
                 holder = new ViewHolder();
-                holder.key = (TextView) convertView.findViewById(R.id.version_item_key);
-                holder.value = (TextView) convertView.findViewById(R.id.version_item_value);
+                holder.key = (TextView) convertView.findViewById(R.id.item_key);
+                holder.value = (TextView) convertView.findViewById(R.id.item_value);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            holder.key.setText(verson_item_keys[position]);
-            holder.value.setText(version_item_values[position]);
+            holder.key.setText(item_keys[position]);
+            holder.value.setText(item_values[position]);
             return convertView;
         }
 
@@ -118,20 +117,20 @@ public class VersionFragment extends Fragment {
     }
 
     private void prepareData() {
-        version_item_values[0] = Build.VERSION.RELEASE;
-        version_item_values[1] = Build.SERIAL;
-        version_item_values[2] = Build.PRODUCT;
-        version_item_values[3] = Build.BOARD;
-        version_item_values[4] = Build.MANUFACTURER;
+        item_values[0] = Build.VERSION.RELEASE;
+        item_values[1] = Build.SERIAL;
+        item_values[2] = Build.PRODUCT;
+        item_values[3] = Build.BOARD;
+        item_values[4] = Build.MANUFACTURER;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_version, container, false);
-        mList = (ListView) view.findViewById(R.id.version_list);
-        mList.setAdapter(new VersonAdapter(inflater));
+        View view = inflater.inflate(R.layout.fragment_display_simple, container, false);
+        mList = (ListView) view.findViewById(R.id.list);
+        mList.setAdapter(new MyAdapter(inflater));
         return view;
     }
 

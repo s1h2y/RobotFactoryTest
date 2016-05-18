@@ -2,7 +2,7 @@
 
 
     <style name="Widget.SeekBar.Lightness" parent="@android:style/Widget.SeekBar">
-        <item name="android:maxHeight">20dp</item>
+        <item name="android:maxHeight">10dp</item>
         <item name="android:indeterminateOnly">false</item>
         <item name="android:indeterminateDrawable">
             @android:drawable/progress_indeterminate_horizontal
@@ -10,7 +10,12 @@
         <item name="android:progressDrawable">@drawable/seekbar_lightness</item>
         <item name="android:minHeight">8.0dip</item>
         <item name="android:thumb">@drawable/lightness_thumb</item>
-        <item name="android:thumbOffset">10.0dip</item>
+        <item name="android:thumbOffset">5.0dip</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:max">255</item>
+        <item name="android:layout_width">400dp</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="Widget.MyCheckBox.TextView" parent="@android:style/Widget.TextView">
@@ -32,5 +37,26 @@
     <style name="Widget.TextView.StyleA" parent="@android:style/Widget.TextView">
         <item name="android:textColor">@color/text_a</item>
         <item name="android:textSize">@dimen/text_a</item>
+    </style>
+
+    <style name="Widget.Button.StartTestLong" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/button_long</item>
+        <item name="android:textColor">@color/text_a</item>
+        <item name="android:textSize">@dimen/text_a</item>
+        <item name="android:text">@string/start_test</item>
+        <item name="android:layout_width">401dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="Widget.TextView.Detail" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/text_c</item>
+        <item name="android:textSize">@dimen/text_c</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginTop">@dimen/detail_text_margin_top</item>
+        <item name="android:layout_marginLeft">@dimen/detail_text_margin_left</item>
     </style>
 </resources>

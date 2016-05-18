@@ -85,12 +85,6 @@ public class TouchFragment extends Fragment {
                 startActivity(new Intent(mActivity, TouchActivity.class));
             }
         });
-        TextView manufacturer = (TextView)root.findViewById(R.id.manufacturer);
-        TextView icManufacturer = (TextView)root.findViewById(R.id.manufacturer);
-        TextView touchManufacturer = (TextView)root.findViewById(R.id.manufacturer);
-        manufacturer.setText(Build.MANUFACTURER);
-        icManufacturer.setText(Build.HARDWARE);
-        touchManufacturer.setText(Build.DISPLAY);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

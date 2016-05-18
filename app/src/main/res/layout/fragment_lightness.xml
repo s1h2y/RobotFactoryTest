@@ -6,15 +6,20 @@
 
     <TextView
         android:id="@+id/detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Widget.TextView.Detail"
         android:text="@string/lightness_detail" />
 
     <TextView
         android:id="@+id/current"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="493dp"
+        android:layout_height="89dp"
         android:layout_below="@id/detail"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:background="@drawable/buttons_list_corner"
+        android:textColor="#343434"
+        android:textSize="27dp"
         android:text="@string/cur_lightness" />
 
     <LinearLayout
@@ -22,18 +27,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/current"
+        android:layout_alignLeft="@id/detail"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/lightness_check_box"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/check_box"
-            android:button="@null" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/Widget.MyCheckBox.TextView"
             android:text="@string/lightness_fail" />
     </LinearLayout>
 
@@ -41,23 +48,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/check_layout"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/lightness_down_width_height"
+            android:layout_height="@dimen/lightness_down_width_height"
             android:src="@drawable/lightness_down" />
 
         <SeekBar
             android:id="@+id/seekbar"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:max="255"
             style="@style/Widget.SeekBar.Lightness"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/lightness_up_width_height"
+            android:layout_height="@dimen/lightness_up_width_height"
             android:src="@drawable/lightness_up" />
     </LinearLayout>
 </RelativeLayout>

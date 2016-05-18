@@ -1,10 +1,12 @@
 package com.alpha.smart.factorytest.fragments;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.utils.Constant;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,6 +90,7 @@ public class LightnessFragment extends Fragment {
         mCheck = (CheckBox)root.findViewById(R.id.lightness_check_box);
         mSeekbar = (SeekBar)root.findViewById(R.id.seekbar);
         mCur = (TextView)root.findViewById(R.id.current);
+
         mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -97,6 +101,7 @@ public class LightnessFragment extends Fragment {
                 }
             }
         });
+
         mSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -114,6 +119,8 @@ public class LightnessFragment extends Fragment {
 
             }
         });
+        mCur.setText(getString(R.string.cur_lightness) + Constant.curLightness);
+        mSeekbar.setProgress((int)(Constant.curLightness  / 100f * mSeekbar.getMax()));
     }
 
     private void changeCurText(int cur) {
@@ -169,5 +176,17 @@ public class LightnessFragment extends Fragment {
             lp.screenBrightness = (brightness <= 0 ? 1 : brightness) / 255f;
         }
         window.setAttributes(lp);
+    }
+
+    public int getScreenBrightness(Context activity) {
+        int value = 0;
+        ContentResolver cr = activity.getContentResolver();
+        try {
+            value = (int)(Settings.System.getInt(cr, Settings.System.SCREEN_BRIGHTNESS) / 255f * 100);
+        } catch (Settings.SettingNotFoundException e) {
+
+        }
+        Log.d("shy", "cur " + value);
+        return value;
     }
 }

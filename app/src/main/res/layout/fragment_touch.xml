@@ -4,75 +4,28 @@
     android:layout_height="match_parent"
     tools:context="com.alpha.smart.factorytest.fragments.TouchFragment">
 
-    <LinearLayout
-        android:id="@+id/touch_test_tips"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/touch_detail" />
-
-        <GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnCount="2">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/manufacturer" />
-
-            <TextView
-                android:id="@+id/manufacturer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lcd_ic" />
-
-            <TextView
-                android:id="@+id/ic_manufacturer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/touch_version" />
-
-            <TextView
-                android:id="@+id/touch_manufacturer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </GridLayout>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/detail"
+        style="@style/Widget.TextView.Detail"
+        android:text="@string/touch_detail" />
 
 
     <LinearLayout
         android:id="@+id/touch_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/touch_test_tips"
-        android:layout_below="@id/touch_test_tips"
-        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@id/detail"
+        android:layout_below="@id/detail"
+        android:layout_marginTop="100dp"
         android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/touch_result_check"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/check_box"
-            android:button="@null" />
+            android:layout_height="wrap_content" />
 
         <TextView
+            style="@style/Widget.MyCheckBox.TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/touch_fail" />
@@ -81,10 +34,7 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Widget.Button.StartTestLong"
         android:layout_below="@id/touch_result"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/start_test" />
+        android:layout_marginTop="40dp" />
 </RelativeLayout>

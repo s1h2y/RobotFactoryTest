@@ -41,11 +41,8 @@
 
     <Button
         android:id="@+id/rec_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@id/check_layout"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/start_test_button"/>
+        style="@style/Widget.Button.StartTestLong"/>
 
 </RelativeLayout>

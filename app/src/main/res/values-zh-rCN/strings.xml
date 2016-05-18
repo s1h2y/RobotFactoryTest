@@ -88,9 +88,15 @@
     
     <!-- battery -->
     <string name="battery_volume">电池电量</string>
-    <string name="battery_sta">电池状态</string>
+    <string name="battery_status">电池状态</string>
     <string name="battery_voltage">电池实际电压</string>
     <string name="battery_temp">电池实际温度</string>
+    <string name="battery_status_unknown">未知</string>
+    <string name="battery_status_charging">充电中</string>
+    <string name="battery_status_discharging">放电中</string>
+    <string name="battery_status_not_charging">未在充电</string>
+    <string name="battery_status_full">电量已满</string>
+    <string name="temp_symbol">\u2103</string><!--摄氏度符号 -->
 
     <!-- standby -->
     <string name="standby_fail">无法进入待机状态</string>

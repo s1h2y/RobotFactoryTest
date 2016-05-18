@@ -1,16 +1,23 @@
 package com.alpha.smart.factorytest.fragments;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Environment;
+import android.os.StatFs;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
+
+import java.io.File;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,8 +38,57 @@ public class StorageFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private ListView mList;
     private Context mContext;
+    ListView mList;
+    int item_keys[] = {R.string.system_total, R.string.system_used, R.string.system_avail,
+            R.string.extern_total, R.string.extern_used, R.string.extern_avail};
+    String item_values[] = new String[item_keys.length];
+
+    class MyAdapter extends BaseAdapter {
+
+        LayoutInflater mInflater;
+
+        public MyAdapter(LayoutInflater mInflater) {
+            this.mInflater = mInflater;
+        }
+
+        @Override
+        public int getCount() {
+            return item_keys.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return position;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder holder;
+            if (convertView == null) {
+                convertView = mInflater.inflate(R.layout.display_list_item, null);
+                holder = new ViewHolder();
+                holder.key = (TextView) convertView.findViewById(R.id.item_key);
+                holder.value = (TextView) convertView.findViewById(R.id.item_value);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+            holder.key.setText(item_keys[position]);
+            holder.value.setText(item_values[position]);
+            return convertView;
+        }
+
+        class ViewHolder {
+            TextView key;
+            TextView value;
+        }
+    }
 
     public StorageFragment() {
         // Required empty public constructor
@@ -68,12 +124,22 @@ public class StorageFragment extends Fragment {
     }
 
     private void prepareData() {
+        item_values[0] = "" + Environment.getDataDirectory().getTotalSpace() / 1024 / 1024 + " MB";
+        item_values[1] = "" + Environment.getDataDirectory().getUsableSpace() / 1024 / 1024 + " MB";
+        item_values[2] = "" + Environment.getDataDirectory().getFreeSpace() / 1024 / 1024 + " MB";
+
+        item_values[3] = "" + Environment.getExternalStorageDirectory().getTotalSpace() / 1024 / 1024 + " MB";
+        item_values[4] = "" + Environment.getExternalStorageDirectory().getUsableSpace() / 1024 / 1024 + " MB";
+        item_values[5] = "" + Environment.getExternalStorageDirectory().getFreeSpace() / 1024 / 1024 + " MB";
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return null;
+        View view = inflater.inflate(R.layout.fragment_display_simple, container, false);
+        mList = (ListView) view.findViewById(R.id.list);
+        mList.setAdapter(new MyAdapter(inflater));
+        return view;
     }
 
     private void initView(View root) {
