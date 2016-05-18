@@ -31,7 +31,7 @@ public class WifiUtils {
         mHandler = h;
         mWifiManager = (WifiManager) ctx.getSystemService(Context.WIFI_SERVICE);
         mConfig = new WifiConfiguration();
-        mConfig.preSharedKey = "\"" + Constant.password + "\"";
+        mConfig.preSharedKey = "\"" + Constant.PASSWORD + "\"";
     }
 
     public void openWifi() {
@@ -74,7 +74,7 @@ public class WifiUtils {
 
     public void connectWifi(WifiBean wb) {
         mConfig.SSID = "\"" + wb.ssid + "\"";
-        mConfig.preSharedKey = "\"" + Constant.password + "\"";
+        mConfig.preSharedKey = "\"" + Constant.PASSWORD + "\"";
         mConfig.status = WifiConfiguration.Status.ENABLED;
         int wifiId = mWifiManager.addNetwork(mConfig);
         if (wifiId != -1) {

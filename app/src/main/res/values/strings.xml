@@ -82,6 +82,8 @@
     <!-- mic -->
     <string name="mic_detail">touch start record.\n check if record fail.</string>
     <string name="ready_rec">ready record...</string>
+    <string name="recording">recording...</string>
+    <string name="play_record">playing record...</string>
     <string name="rec_fail">record fail</string>
     <string name="start_rec">start record</string>
 

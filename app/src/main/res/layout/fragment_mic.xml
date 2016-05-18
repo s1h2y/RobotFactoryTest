@@ -40,7 +40,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/rec_button"
+        android:id="@+id/button"
         style="@style/Widget.Button.StartTestLong"/>
 
 </RelativeLayout>

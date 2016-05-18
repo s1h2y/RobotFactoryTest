@@ -27,7 +27,7 @@ import com.alpha.smart.factorytest.fragments.WifiFragment;
  * Created by shy on 16-5-16.
  */
 public class Constant {
-    public static final String password = "12345678";
+    public static final String PASSWORD = "12345678";
     public static final FragmentBean[] fragments = {new FragmentBean(R.drawable.list_version, R.string.list_version, "version", VersionFragment.class.getName()),
             new FragmentBean(R.drawable.list_lcd, R.string.list_lcd, "LCD", LCDFragment.class.getName()),
             new FragmentBean(R.drawable.list_button, R.string.list_button, "buttons", ButtonsFragment.class.getName()),
@@ -50,5 +50,6 @@ public class Constant {
             new FragmentBean(R.drawable.list_monitor, R.string.list_monitor_light, "monitor light", MonitorFragment.class.getName()),
     };
 
-    public static int curLightness = 70;
+    public static int DEFAULT_LIGHTNESS = 70;
+    public static int RECORD_DURATION = 5000;
 }

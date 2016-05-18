@@ -119,8 +119,8 @@ public class LightnessFragment extends Fragment {
 
             }
         });
-        mCur.setText(getString(R.string.cur_lightness) + Constant.curLightness);
-        mSeekbar.setProgress((int)(Constant.curLightness  / 100f * mSeekbar.getMax()));
+        mCur.setText(getString(R.string.cur_lightness) + Constant.DEFAULT_LIGHTNESS);
+        mSeekbar.setProgress((int)(Constant.DEFAULT_LIGHTNESS / 100f * mSeekbar.getMax()));
     }
 
     private void changeCurText(int cur) {

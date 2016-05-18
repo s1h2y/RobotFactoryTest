@@ -103,6 +103,7 @@ public class TestActivity extends Activity {
         fragmentTransaction.replace(R.id.fragments, n, Constant.fragments[0].tag);
         fragmentTransaction.commit();
         mAdapter.setSelectedItem(0);
+        mTestList.smoothScrollToPosition(0);
     }
 
     public class PanelAdapter extends BaseAdapter {

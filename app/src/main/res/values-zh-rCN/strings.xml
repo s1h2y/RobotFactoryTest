@@ -83,6 +83,8 @@
     <!-- mic -->
     <string name="mic_detail">轻触开始录音进入录音测试。\n如无法录音，请打勾。</string>
     <string name="ready_rec">准备录音……</string>
+    <string name="recording">正在录音……</string>
+    <string name="play_record">正在播放录音……</string>
     <string name="rec_fail">无法录音</string>
     <string name="start_rec">开始录音</string>
     

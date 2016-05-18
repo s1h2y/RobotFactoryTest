@@ -1,14 +1,26 @@
 package com.alpha.smart.factorytest.fragments;
 
 import android.content.Context;
+import android.media.MediaPlayer;
+import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Environment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.utils.Constant;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +41,12 @@ public class MicFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private TextView mTips;
+    private CheckBox mCheck;
+    private Button mBtn;
+    private MediaRecorder mRecorder;
+    private MediaPlayer mPlayer;
+    private String mFileName;
 
     public MicFragment() {
         // Required empty public constructor
@@ -65,7 +83,35 @@ public class MicFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mic, container, false);
+        View root = inflater.inflate(R.layout.fragment_mic, container, false);
+        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
+        mFileName += "/audiorecordtest.3gp";
+        initView(root);
+        return root;
+    }
+
+    private void initView(View root) {
+        mTips = (TextView)root.findViewById(R.id.tips);
+        mCheck = (CheckBox)root.findViewById(R.id.check);
+        mBtn = (Button)root.findViewById(R.id.button);
+        mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            }
+        });
+        mBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mTips.getText().equals(getString(R.string.ready_rec))) {
+                    File tmp = new File(mFileName);
+                    if (tmp.exists()) {
+                        tmp.delete();
+                    }
+                    startRecord();
+                }
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,5 +151,56 @@ public class MicFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    private void startRecord() {
+        mTips.setText(R.string.recording);
+        mRecorder = new MediaRecorder();
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        mRecorder.setOutputFile(mFileName);
+        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        mRecorder.setMaxDuration(Constant.RECORD_DURATION);
+        mRecorder.setOnInfoListener(new MediaRecorder.OnInfoListener() {
+            @Override
+            public void onInfo(MediaRecorder mr, int what, int extra) {
+                if (MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED == what) {
+                    stopRecord();
+                    playRecord();
+                }
+            }
+        });
+        try {
+            mRecorder.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mRecorder.start();
+    }
+
+    private void stopRecord() {
+        mRecorder.stop();
+        mRecorder.release();
+        mRecorder = null;
+    }
+
+    private void playRecord() {
+        mTips.setText(R.string.play_record);
+        mPlayer = new MediaPlayer();
+        try {
+            mPlayer.setDataSource(mFileName);
+            mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    mPlayer.release();
+                    mPlayer = null;
+                    mTips.setText(R.string.ready_rec);
+                }
+            });
+            mPlayer.prepare();
+            mPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
