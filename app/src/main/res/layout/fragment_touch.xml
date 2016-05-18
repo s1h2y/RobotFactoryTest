@@ -17,6 +17,7 @@
         android:layout_alignLeft="@id/detail"
         android:layout_below="@id/detail"
         android:layout_marginTop="100dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <CheckBox
@@ -34,7 +35,5 @@
 
     <Button
         android:id="@+id/button"
-        style="@style/Widget.Button.StartTestLong"
-        android:layout_below="@id/touch_result"
-        android:layout_marginTop="40dp" />
+        style="@style/Widget.Button.StartTestLong" />
 </RelativeLayout>

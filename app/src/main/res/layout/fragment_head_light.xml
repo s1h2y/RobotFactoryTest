@@ -6,46 +6,68 @@
 
     <TextView
         android:id="@+id/detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/head_light_detail"/>
+        style="@style/Widget.TextView.Detail"
+        android:text="@string/head_light_detail" />
 
     <GridLayout
         android:id="@+id/check_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="447dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/detail"
         android:layout_below="@id/detail"
-        android:layout_marginTop="27dp"
-        android:columnCount="4">
+        android:layout_marginTop="37dp"
+        android:background="@drawable/buttons_list_corner"
+        android:columnCount="2">
 
-        <CheckBox android:id="@+id/origin" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:text="@string/origin_fail" />
+            <CheckBox
+                android:id="@+id/origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/red"
-            android:layout_marginLeft="20dp" />
+            <TextView
+                style="@style/Widget.MyCheckBox.TextView"
+                android:text="@string/origin_fail" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:text="@string/red_fail" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:gravity="center">
 
-        <CheckBox android:id="@+id/green" />
+            <CheckBox
+                android:id="@+id/red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:text="@string/green_fail" />
+            <TextView
+                style="@style/Widget.MyCheckBox.TextView"
+                android:text="@string/red_fail" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                style="@style/Widget.MyCheckBox.TextView"
+                android:text="@string/green_fail" />
+        </LinearLayout>
+
     </GridLayout>
 
     <Button
         android:id="@+id/button"
-        android:layout_below="@id/check_layout"
-        android:layout_marginTop="33dp"
-        style="@style/Widget.Button.StartTestLong"/>
+        style="@style/Widget.Button.StartTestLong" />
 </RelativeLayout>

@@ -6,10 +6,7 @@
 
     <TextView
         android:id="@+id/detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="27dp"
+        style="@style/Widget.TextView.Detail"
         android:text="@string/camera_detail" />
 
     <LinearLayout
@@ -18,6 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/detail"
         android:layout_below="@id/detail"
+        android:layout_marginTop="83dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <CheckBox
@@ -28,13 +27,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/Widget.MyCheckBox.TextView"
             android:text="@string/camera_fail" />
     </LinearLayout>
 
     <Button
         android:id="@+id/button"
-        android:layout_below="@id/check_layout"
-        android:layout_marginTop="69dp"
         style="@style/Widget.Button.StartTestLong"/>
 
 </RelativeLayout>

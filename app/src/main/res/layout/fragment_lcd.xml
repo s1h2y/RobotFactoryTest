@@ -39,8 +39,6 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_below="@id/lcd_result"
-        android:layout_marginTop="55dp"
         android:text="@string/start_test"
         style="@style/Widget.Button.StartTestLong"/>
 </RelativeLayout>

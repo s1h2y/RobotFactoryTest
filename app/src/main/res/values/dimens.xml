@@ -43,4 +43,6 @@
     <dimen name="detail_text_margin_left">37dp</dimen>
     <dimen name="lightness_down_width_height">30dp</dimen>
     <dimen name="lightness_up_width_height">40dp</dimen>
+    <dimen name="buttons_width">281dp</dimen>
+    <dimen name="buttons_height">251dp</dimen>
 </resources>

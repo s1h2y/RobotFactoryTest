@@ -6,10 +6,7 @@
 
     <TextView
         android:id="@+id/detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="20dp"
+        style="@style/Widget.TextView.Detail"
         android:text="@string/mic_detail"/>
 
     <TextView
@@ -18,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/detail"
         android:layout_alignLeft="@id/detail"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="43dp"
+        style="@style/Widget.TextView.StyleB"
         android:text="@string/ready_rec"/>
 
     <LinearLayout
@@ -27,8 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tips"
         android:layout_alignLeft="@id/detail"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="43dp"
+        android:orientation="horizontal"
+        android:gravity="center">
         <CheckBox
             android:id="@+id/check"
             android:layout_width="wrap_content"
@@ -36,13 +35,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/Widget.MyCheckBox.TextView"
             android:text="@string/rec_fail"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/rec_button"
-        android:layout_below="@id/check_layout"
-        android:layout_marginTop="40dp"
         style="@style/Widget.Button.StartTestLong"/>
 
 </RelativeLayout>

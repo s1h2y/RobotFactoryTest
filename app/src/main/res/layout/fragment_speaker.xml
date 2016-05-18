@@ -6,41 +6,43 @@
 
     <TextView
         android:id="@+id/detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="27dp"
+        style="@style/Widget.TextView.Detail"
         android:text="@string/speaker_detail" />
 
     <TextView
         android:id="@+id/note"
+        style="@style/Widget.TextView.StyleB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/detail"
         android:layout_below="@id/detail"
+        android:layout_marginTop="17dp"
         android:text="@string/ready_play" />
 
     <GridLayout
         android:id="@+id/check_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="447dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/detail"
         android:layout_below="@id/note"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/buttons_list_corner"
         android:columnCount="2">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginRight="50dp">
+            android:layout_marginRight="50dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/no_sound_check_box"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/check_box"
-                android:button="@null" />
+                android:layout_height="wrap_content" />
 
             <TextView
+                style="@style/Widget.MyCheckBox.TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_sound" />
@@ -49,16 +51,16 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/boom_check_box"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/check_box"
-                android:button="@null" />
+                android:layout_height="wrap_content" />
 
             <TextView
+                style="@style/Widget.MyCheckBox.TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/boom" />
@@ -67,25 +69,24 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/sound_no_change_check_box"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/check_box"
-                android:button="@null" />
+                android:layout_height="wrap_content" />
 
             <TextView
+                style="@style/Widget.MyCheckBox.TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sound_no_change" />
         </LinearLayout>
     </GridLayout>
+
     <Button
         android:id="@+id/speaker_button"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        style="@style/Widget.Button.StartTestLong"/>
+        style="@style/Widget.Button.StartTestLong" />
 
 </RelativeLayout>

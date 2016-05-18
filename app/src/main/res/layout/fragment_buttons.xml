@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/buttons"
-        android:layout_width="281dp"
-        android:layout_height="251dp"
+        android:layout_width="@dimen/buttons_width"
+        android:layout_height="@dimen/buttons_height"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="13dp"

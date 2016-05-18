@@ -6,11 +6,7 @@
 
     <TextView
         android:id="@+id/detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="@dimen/margin_left"
-        android:layout_marginTop="@dimen/margin_top"
+        style="@style/Widget.TextView.Detail"
         android:text="@string/gsensor_detail" />
 
     <GridLayout
@@ -19,31 +15,34 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/detail"
         android:layout_below="@id/detail"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="16dp"
         android:columnCount="2">
 
         <TextView
             android:id="@+id/x_cord"
+            style="@style/Widget.TextView.StyleBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/x_cord" />
 
         <TextView
             android:id="@+id/x_value"
+            style="@style/Widget.TextView.StyleRed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/detail"
             android:layout_marginLeft="5dp"
             android:text="-234234g" />
 
         <TextView
             android:id="@+id/y_cord"
+            style="@style/Widget.TextView.StyleBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/y_cord" />
 
         <TextView
             android:id="@+id/y_value"
+            style="@style/Widget.TextView.StyleRed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -51,12 +50,14 @@
 
         <TextView
             android:id="@+id/z_cord"
+            style="@style/Widget.TextView.StyleBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/z_cord" />
 
         <TextView
             android:id="@+id/z_value"
+            style="@style/Widget.TextView.StyleRed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -66,15 +67,63 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/value_layout"
         android:layout_alignLeft="@id/detail"
-        android:layout_marginTop="15dp"
-        android:columnCount="4">
-        <CheckBox android:id="@+id/x_check"/>
-        <TextView android:text="@string/x_fail"/>
-        <CheckBox android:id="@+id/y_check"/>
-        <TextView android:text="@string/y_fail"/>
-        <CheckBox android:id="@+id/z_check"/>
-        <TextView android:text="@string/z_fail"/>
+        android:layout_below="@id/value_layout"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttons_list_corner"
+        android:columnCount="2"
+        android:paddingLeft="10dp"
+        android:paddingRight="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/x_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                style="@style/Widget.MyCheckBox.TextView"
+                android:text="@string/x_fail" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/y_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                style="@style/Widget.MyCheckBox.TextView"
+                android:text="@string/y_fail" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/z_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                style="@style/Widget.MyCheckBox.TextView"
+                android:text="@string/z_fail" />
+        </LinearLayout>
+
     </GridLayout>
+
 </RelativeLayout>

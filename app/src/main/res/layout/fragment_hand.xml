@@ -5,40 +5,67 @@
     tools:context="com.alpha.smart.factorytest.fragments.HandFragment">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="276dp"
+        android:layout_height="331dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="25dp"
         android:src="@drawable/body" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <GridLayout
-            android:id="@+id/check_layout"
+
+        <LinearLayout
+            android:id="@+id/check_left_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="48dp"
-            android:layout_marginTop="61dp"
-            android:columnCount="2">
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="81dp"
+            android:layout_marginRight="63dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <CheckBox android:id="@+id/left" />
+            <CheckBox
+                android:id="@+id/left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-            <TextView android:text="@string/left_hand_fail" />
+            <TextView
+                style="@style/Widget.MyCheckBox.TextView"
+                android:text="@string/left_hand_fail" />
+        </LinearLayout>
 
-            <CheckBox android:id="@+id/right" />
+        <LinearLayout
+            android:id="@+id/check_right_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/check_left_layout"
+            android:layout_alignRight="@id/check_left_layout"
+            android:layout_marginTop="21dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <TextView android:text="@string/right_hand_fail" />
-        </GridLayout>
+            <CheckBox
+                android:id="@+id/right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                style="@style/Widget.MyCheckBox.TextView"
+                android:text="@string/right_hand_fail" />
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@id/check_layout"
-            android:layout_marginLeft="219dp"
-            android:layout_marginTop="85dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="300dp"
+            android:layout_marginBottom="60dp"
+            style="@style/Widget.TextView.StyleC"
             android:text="@string/hand_detail" />
 
     </RelativeLayout>
