@@ -14,6 +14,7 @@
     <string name="main_weixin_detail">微信扫一扫，咨询在线客服</string>
     <string name="main_test_pass">本机已通过检测</string>
     <string name="main_test_fail">本机未通过检测，了解更多></string>
+    <string name="result_test_fail">本机未通过检测</string>
     <!-- test activity -->
     <string name="test_title">检测项目</string>
     <string name="list_version">版本信息</string>
@@ -181,5 +182,33 @@
     <string name="shutdown">关机</string>
     <string name="reboot">重启</string>
 
+    <string name="check_passed">本机已经通过检测</string>
+    <string name="function_ok">正常</string>
+    <string name="function_fail">故障</string>
+    <string name="dead_dot">坏点</string>
+    <string name="vol_up">音量加</string>
+    <string name="vol_down">音量减</string>
+    <string name="rec">录音按钮</string>
+    <string name="back">返回键</string>
+    <string name="home">Home键</string>
+    <string name="power">开关机按钮</string>
+    <string name="lightness">亮度调节</string>
+    <string name="touch">屏幕连续画直线</string>
+    <string name="vol_change">声音大小变化</string>
+    <string name="sound_boom">爆音</string>
+    <string name="nosound">没有声音</string>
+    <string name="mic">录音</string>
+    <string name="standby">待机或唤醒机器</string>
+    <string name="wifisearch">搜索Wi-Fi</string>
+    <string name="wificonnect">连接Wi-Fi</string>
+    <string name="camerashot">拍摄图像</string>
+    <string name="camerafocus">对焦</string>
+    <string name="shake_up_down">上下摆动</string>
+    <string name="shake_left_right">左右摆动</string>
+    <string name="left">左手</string>
+    <string name="right">右手</string>
+    <string name="time">时间</string>
+    <string name="ddr">DDR测试</string>
+    <string name="monitor">监控指示灯</string>
 
 </resources>

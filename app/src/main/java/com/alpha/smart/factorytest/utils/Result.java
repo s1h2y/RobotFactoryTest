@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.util.Xml;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,23 +24,21 @@ import java.util.Iterator;
  * Created by shy on 16-5-19.
  */
 public class Result {
-    private static HashMap<String, Boolean> mResMap = new HashMap<>();
-    private static String testFile = "factory_test_result";
+    private static HashMap<String, String> mResMap = new HashMap<>();
 
     public static void passed(String key) {
         mResMap.remove(key);
     }
 
     public static void failed(String key) {
-        mResMap.put(key, false);
+        mResMap.put(key, Constant.FAILED);
     }
 
-    public static boolean get(String key) {
+    public static String get(String key) {
         if (null != mResMap.get(key)) {
-            return mResMap.get(key).booleanValue();
+            return (String)mResMap.get(key);
         }
-
-        return true;
+        return null;
     }
 
     public static void saveResult(Context ctx) {
@@ -48,16 +47,17 @@ public class Result {
         jsonToFile(json, path);
         SharedPreferences sp = ctx.getSharedPreferences("test", ctx.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString(testFile, path);
+        editor.putString(Constant.TEST_FILE, path);
         editor.commit();
     }
 
     public static void getResult(Context ctx) {
         SharedPreferences sp = ctx.getSharedPreferences("test", ctx.MODE_PRIVATE);
-        String path = sp.getString(testFile, "");
-        JSONObject json = fileToJson(path);
-        mResMap = jsonToMap(json);
-        MyLog.d(json.toString());
+        String path = sp.getString(Constant.TEST_FILE, "");
+        if (null != path && !path.isEmpty() && !path.equals("")) {
+            JSONObject json = fileToJson(path);
+            mResMap = jsonToMap(json);
+        }
     }
 
     private static void checkFile(String path) {
@@ -87,8 +87,8 @@ public class Result {
     }
 
 
-    private static HashMap<String, Boolean> getResultMap() {
-        HashMap<String, Boolean> map = new HashMap<>();
+    private static HashMap<String, String> getResultMap() {
+        HashMap<String, String> map = new HashMap<>();
 
         return map;
     }
@@ -108,51 +108,54 @@ public class Result {
     }
 
     private static JSONObject fileToJson(String path) {
-        JSONObject json = null;
         String content = null;
+        JSONObject json = null;
         try {
             FileInputStream fis = new FileInputStream(path);
             byte[] buffer = new byte[fis.available()];
             fis.read(buffer);
-            content = buffer.toString();
+            content = new String(buffer);
             fis.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        MyLog.d(content.toString());
         try {
             json = new JSONObject(content);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        MyLog.d(json.toString());
         return json;
     }
 
-    private static HashMap<String, Boolean> jsonToMap(JSONObject jsonObject) {
-        HashMap<String, Boolean> map = new HashMap<>();
-        Iterator it = jsonObject.keys();
-        while (it.hasNext()) {
-            String key = (String) it.next();
-            Boolean value = null;
-            try {
-                value = (Boolean) jsonObject.get(key);
-            } catch (JSONException e) {
-                e.printStackTrace();
+
+    private static HashMap<String, String> jsonToMap(JSONObject jsonObject) {
+        HashMap<String, String> map = new HashMap<>();
+        if (null != jsonObject) {
+            Iterator it = jsonObject.keys();
+            while (it.hasNext()) {
+                String key = (String) it.next();
+                String value = null;
+                try {
+                    value = (String)jsonObject.get(key);
+                    map.put(key, value);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-            map.put(key, value);
         }
         return map;
     }
 
-    private static JSONObject mapToJson(HashMap<String, Boolean> map) {
+    private static JSONObject mapToJson(HashMap<String, String> map) {
         Iterator it = map.entrySet().iterator();
         JSONObject resJson = new JSONObject();
         while (it.hasNext()) {
             HashMap.Entry entry = (HashMap.Entry) it.next();
             String key = (String) entry.getKey();
-            Boolean value = (Boolean) entry.getValue();
+            String value = (String) entry.getValue();
             try {
                 resJson.put(key, value);
             } catch (JSONException e) {
@@ -160,5 +163,23 @@ public class Result {
             }
         }
         return resJson;
+    }
+
+    public static boolean isOK(Context ctx) {
+        getResult(ctx);
+        if (mResMap.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isChecked(Context ctx) {
+        SharedPreferences sp = ctx.getSharedPreferences("test", ctx.MODE_PRIVATE);
+        String path = sp.getString(Constant.TEST_FILE, "none");
+        File file = new File(path);
+        if (file.exists()) {
+            return true;
+        }
+        return false;
     }
 }

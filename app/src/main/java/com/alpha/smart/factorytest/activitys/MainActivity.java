@@ -5,19 +5,26 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.fragments.MyDialogFragment;
+import com.alpha.smart.factorytest.utils.Result;
 
 public class MainActivity extends Activity {
 
     private LinearLayout mTestResult;
     private Button mPower;
     Button mStart;
+    private ImageView mResultImage;
+    private TextView mResultText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +33,31 @@ public class MainActivity extends Activity {
         initView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkResult();
+    }
+
+    private void checkResult() {
+        if (Result.isChecked(this)) {
+            if (Result.isOK(this)) {
+                showResultOK();
+            } else {
+                showResultFail();
+            }
+        } else {
+            mTestResult.setVisibility(View.INVISIBLE);
+        }
+    }
+
     private void initView() {
+
         mStart = (Button) findViewById(R.id.main_start_test);
         mTestResult = (LinearLayout) findViewById(R.id.main_test_result);
         mPower = (Button) findViewById(R.id.main_power);
+        mResultImage = (ImageView) findViewById(R.id.main_test_result_image);
+        mResultText = (TextView) findViewById(R.id.main_test_result_text);
         mStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +67,7 @@ public class MainActivity extends Activity {
         mTestResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, TestActivity.class));
+                startActivity(new Intent(MainActivity.this, ResultActivity.class));
             }
         });
 
@@ -54,6 +82,20 @@ public class MainActivity extends Activity {
 
     private void showPowerDialog() {
         new MyDialogFragment().show(getFragmentManager(), "power");
+    }
+
+    private void showResultOK() {
+        mResultImage.setImageResource(R.drawable.right);
+        mResultText.setText(R.string.main_test_pass);
+        mResultText.setTextColor(Color.GREEN);
+        mTestResult.setVisibility(View.VISIBLE);
+    }
+
+    private void showResultFail() {
+        mResultImage.setImageResource(R.drawable.wrong);
+        mResultText.setText(R.string.main_test_fail);
+        mResultText.setTextColor(Color.RED);
+        mTestResult.setVisibility(View.VISIBLE);
     }
 
 }

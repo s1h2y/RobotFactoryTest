@@ -53,6 +53,8 @@ public class Constant {
             new FragmentBean(R.drawable.list_storage, R.drawable.storage_grey, R.string.list_storage, "storage", StorageFragment.class.getName()),
             new FragmentBean(R.drawable.list_monitor, R.drawable.monitor_grey, R.string.list_monitor_light, "monitor light", MonitorFragment.class.getName()),
     };
+    public static final String PASSED = "passed";
+    public static final String FAILED = "failed";
 
     public static int DEFAULT_LIGHTNESS = 70;
     public static int RECORD_DURATION = 5000;
@@ -90,4 +92,6 @@ public class Constant {
     public static final String MONITOR = "monitor";
 
     public static final String RECORD_FILE_NAME = "/audiorecordtest.3gp";
+
+    public static final String TEST_FILE = "factory_test_result_path";
 }

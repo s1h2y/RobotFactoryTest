@@ -13,6 +13,7 @@
     <string name="main_weixin_detail">follow WebChat to contract online customer service</string>
     <string name="main_test_pass">test pass</string>
     <string name="main_test_fail">test fail, know more></string>
+    <string name="result_test_fail">test fail</string>
     <!-- test activity -->
     <string name="test_title">Test Project</string>
     <string name="list_version">version</string>
@@ -184,4 +185,34 @@
 
     <string name="shutdown">shutdown</string>
     <string name="reboot">reboot</string>
+
+    <string name="check_passed">factory test passed</string>
+    <string name="function_ok">normal</string>
+    <string name="function_fail">wrong</string>
+    <string name="dead_dot">dead dot</string>
+    <string name="vol_up">volume up</string>
+    <string name="vol_down">volume down</string>
+    <string name="rec">record button</string>
+    <string name="back">back button</string>
+    <string name="home">home button</string>
+    <string name="power">power button</string>
+    <string name="lightness">lightness</string>
+    <string name="touch">touch</string>
+    <string name="vol_change">volume</string>
+    <string name="sound_boom">sound boom</string>
+    <string name="nosound">no sound</string>
+    <string name="mic">mic</string>
+    <string name="standby">standby</string>
+    <string name="wifisearch">search wifi</string>
+    <string name="wificonnect">connect wifi</string>
+    <string name="camerashot">shot</string>
+    <string name="camerafocus">focus</string>
+    <string name="shake_up_down">shake up down</string>
+    <string name="shake_left_right">shake left right</string>
+    <string name="left">left hand</string>
+    <string name="right">right hand</string>
+    <string name="time">time</string>
+    <string name="ddr">ddr test</string>
+    <string name="monitor">monitor light</string>
+
 </resources>
