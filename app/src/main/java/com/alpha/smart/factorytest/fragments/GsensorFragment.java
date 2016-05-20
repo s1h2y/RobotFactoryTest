@@ -77,15 +77,25 @@ public class GsensorFragment extends Fragment implements CompoundButton.OnChecke
     }
 
     private void initView(View root) {
-        mXCheck = (CheckBox)root.findViewById(R.id.x_check);
-        mYCheck = (CheckBox)root.findViewById(R.id.y_check);
-        mZCheck = (CheckBox)root.findViewById(R.id.z_check);
-        mXValue = (TextView)root.findViewById(R.id.x_value);
-        mYValue = (TextView)root.findViewById(R.id.y_value);
-        mZValue = (TextView)root.findViewById(R.id.z_value);
+        mXCheck = (CheckBox) root.findViewById(R.id.x_check);
+        mYCheck = (CheckBox) root.findViewById(R.id.y_check);
+        mZCheck = (CheckBox) root.findViewById(R.id.z_check);
+        mXValue = (TextView) root.findViewById(R.id.x_value);
+        mYValue = (TextView) root.findViewById(R.id.y_value);
+        mZValue = (TextView) root.findViewById(R.id.z_value);
         mXCheck.setOnCheckedChangeListener(this);
         mYCheck.setOnCheckedChangeListener(this);
         mZCheck.setOnCheckedChangeListener(this);
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.GSENSOR_X)) ? true : false;
+        mXCheck.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.GSENSOR_Y)) ? true : false;
+        mYCheck.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.GSENSOR_Z)) ? true : false;
+        mZCheck.setChecked(checked);
     }
 
     @Override
@@ -140,7 +150,6 @@ public class GsensorFragment extends Fragment implements CompoundButton.OnChecke
         super.onDetach();
         mListener = null;
     }
-
 
 
     /**

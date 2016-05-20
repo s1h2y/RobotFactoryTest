@@ -40,7 +40,8 @@ public class TouchFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    Context mActivity;
+    private Context mActivity;
+    private CheckBox mCheck;
 
     public TouchFragment() {
         // Required empty public constructor
@@ -84,7 +85,7 @@ public class TouchFragment extends Fragment {
 
     private void initView(View root) {
         Button btn = (Button) root.findViewById(R.id.button);
-        final CheckBox check = (CheckBox)root.findViewById(R.id.check);
+        mCheck = (CheckBox) root.findViewById(R.id.check);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +93,7 @@ public class TouchFragment extends Fragment {
                 startActivity(new Intent(mActivity, TouchActivity.class));
             }
         });
-        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -102,6 +103,11 @@ public class TouchFragment extends Fragment {
                 }
             }
         });
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.TOUCH)) ? true : false;
+        mCheck.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

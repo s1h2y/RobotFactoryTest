@@ -86,10 +86,10 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
     }
 
     private void initView(View root) {
-        mNote = (TextView)root.findViewById(R.id.note);
-        mCheckNoSound = (CheckBox)root.findViewById(R.id.no_sound_check_box);
-        mCheckBoom = (CheckBox)root.findViewById(R.id.boom_check_box);
-        mCheckNoChange = (CheckBox)root.findViewById(R.id.sound_no_change_check_box);
+        mNote = (TextView) root.findViewById(R.id.note);
+        mCheckNoSound = (CheckBox) root.findViewById(R.id.no_sound_check_box);
+        mCheckBoom = (CheckBox) root.findViewById(R.id.boom_check_box);
+        mCheckNoChange = (CheckBox) root.findViewById(R.id.sound_no_change_check_box);
         mButton = (Button) root.findViewById(R.id.speaker_button);
         mCheckNoSound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -129,6 +129,16 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
                 }
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.SPEAKER_NO_SOUND)) ? true : false;
+        mCheckNoSound.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.SPEAKER_BOOM)) ? true : false;
+        mCheckBoom.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.SPEAKER_NO_CHANGE)) ? true : false;
+        mCheckNoChange.setChecked(checked);
     }
 
     private void playMusic() {
@@ -168,6 +178,11 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        if (null != mPlayer) {
+            mPlayer.stop();
+            mPlayer.release();
+            mPlayer = null;
+        }
     }
 
     /**

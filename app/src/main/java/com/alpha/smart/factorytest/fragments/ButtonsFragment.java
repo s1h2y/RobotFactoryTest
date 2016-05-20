@@ -33,6 +33,7 @@ public class ButtonsFragment extends Fragment implements CompoundButton.OnChecke
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private CheckBox mCheckUp, mCheckDown, mCheckRec, mCheckBack, mCheckHome, mCheckPower;
 
     public ButtonsFragment() {
         // Required empty public constructor
@@ -74,18 +75,35 @@ public class ButtonsFragment extends Fragment implements CompoundButton.OnChecke
     }
 
     private void intiView(View root) {
-        CheckBox checkUp = (CheckBox)root.findViewById(R.id.volume_up_check_box);
-        CheckBox checkDown = (CheckBox)root.findViewById(R.id.volume_down_check_box);
-        CheckBox checkRec = (CheckBox)root.findViewById(R.id.record_check_box);
-        CheckBox checkBack = (CheckBox)root.findViewById(R.id.back_check_box);
-        CheckBox checkHome = (CheckBox)root.findViewById(R.id.home_check_box);
-        CheckBox checkPower = (CheckBox)root.findViewById(R.id.power_check_box);
-        checkUp.setOnCheckedChangeListener(this);
-        checkDown.setOnCheckedChangeListener(this);
-        checkRec.setOnCheckedChangeListener(this);
-        checkBack.setOnCheckedChangeListener(this);
-        checkHome.setOnCheckedChangeListener(this);
-        checkPower.setOnCheckedChangeListener(this);
+        mCheckUp = (CheckBox) root.findViewById(R.id.volume_up_check_box);
+        mCheckDown = (CheckBox) root.findViewById(R.id.volume_down_check_box);
+        mCheckRec = (CheckBox) root.findViewById(R.id.record_check_box);
+        mCheckBack = (CheckBox) root.findViewById(R.id.back_check_box);
+        mCheckHome = (CheckBox) root.findViewById(R.id.home_check_box);
+        mCheckPower = (CheckBox) root.findViewById(R.id.power_check_box);
+        mCheckUp.setOnCheckedChangeListener(this);
+        mCheckDown.setOnCheckedChangeListener(this);
+        mCheckRec.setOnCheckedChangeListener(this);
+        mCheckBack.setOnCheckedChangeListener(this);
+        mCheckHome.setOnCheckedChangeListener(this);
+        mCheckPower.setOnCheckedChangeListener(this);
+        checkResult();
+
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.BUTTON_VOL_UP)) ? true : false;
+        mCheckUp.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.BUTTON_VOL_DOWN)) ? true : false;
+        mCheckDown.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.BUTTON_REC)) ? true : false;
+        mCheckRec.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.BUTTON_REC)) ? true : false;
+        mCheckBack.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.BUTTON_HOME)) ? true : false;
+        mCheckHome.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.BUTTON_POWER)) ? true : false;
+        mCheckPower.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

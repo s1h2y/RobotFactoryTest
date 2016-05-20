@@ -36,7 +36,8 @@ public class LCDFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    Context mContext;
+    private Context mContext;
+    private CheckBox mCheck;
 
     public LCDFragment() {
         // Required empty public constructor
@@ -81,7 +82,7 @@ public class LCDFragment extends Fragment {
 
     private void initView(View root) {
         Button btn = (Button)root.findViewById(R.id.button);
-        CheckBox check = (CheckBox)root.findViewById(R.id.check);
+        mCheck = (CheckBox)root.findViewById(R.id.check);
         btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -89,7 +90,7 @@ public class LCDFragment extends Fragment {
                 startActivity(new Intent(mContext, LCDActivity.class));
             }
         });
-        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -99,6 +100,12 @@ public class LCDFragment extends Fragment {
                 }
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.LCD)) ? true : false;
+        mCheck.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

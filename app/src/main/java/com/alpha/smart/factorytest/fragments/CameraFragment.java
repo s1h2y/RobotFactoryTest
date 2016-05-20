@@ -99,6 +99,12 @@ public class CameraFragment extends Fragment {
                 }
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.CAMERA_SHOT)) ? true : false;
+        mCheck.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

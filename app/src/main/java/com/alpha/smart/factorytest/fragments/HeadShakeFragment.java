@@ -98,6 +98,12 @@ public class HeadShakeFragment extends Fragment {
                 AlphaSDK.getInstance().headNod(null);
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.HEAD_SHAKE)) ? true : false;
+        mCheck.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

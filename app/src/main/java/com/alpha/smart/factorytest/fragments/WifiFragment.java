@@ -60,6 +60,7 @@ public class WifiFragment extends Fragment {
     private List<WifiBean> mList = new ArrayList<WifiBean>();
     private WifiAdapter mAdapter;
     private TextView mTips;
+    private CheckBox mCheckSearch, mCheckConnect;
 
     public WifiFragment() {
         // Required empty public constructor
@@ -199,9 +200,9 @@ public class WifiFragment extends Fragment {
             }
         });
         mSwitch.setChecked(true);
-        CheckBox checkNoNetwork = (CheckBox)root.findViewById(R.id.check_no_network);
-        CheckBox checkConnectFail = (CheckBox)root.findViewById(R.id.check_connect_fail);
-        checkConnectFail.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mCheckSearch = (CheckBox) root.findViewById(R.id.check_no_network);
+        mCheckConnect = (CheckBox) root.findViewById(R.id.check_connect_fail);
+        mCheckSearch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -211,7 +212,7 @@ public class WifiFragment extends Fragment {
                 }
             }
         });
-        checkConnectFail.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mCheckConnect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -221,6 +222,14 @@ public class WifiFragment extends Fragment {
                 }
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.WIFI_SEARCH)) ? true : false;
+        mCheckSearch.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.WIFI_CONNECT)) ? true : false;
+        mCheckConnect.setChecked(checked);
     }
 
 

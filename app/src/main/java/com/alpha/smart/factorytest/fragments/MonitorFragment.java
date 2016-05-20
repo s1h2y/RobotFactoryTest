@@ -77,8 +77,8 @@ public class MonitorFragment extends Fragment {
     }
 
     private void initView(View root) {
-        mCheck = (CheckBox)root.findViewById(R.id.check);
-        mBtn = (Button)root.findViewById(R.id.button);
+        mCheck = (CheckBox) root.findViewById(R.id.check);
+        mBtn = (Button) root.findViewById(R.id.button);
         mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -95,6 +95,12 @@ public class MonitorFragment extends Fragment {
 
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.MONITOR)) ? true : false;
+        mCheck.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

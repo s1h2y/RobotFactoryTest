@@ -39,6 +39,7 @@ public class DDRFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private TextView mTips;
     private Button mBtn;
+    private CheckBox mCheck;
 
     public DDRFragment() {
         // Required empty public constructor
@@ -88,8 +89,8 @@ public class DDRFragment extends Fragment {
 
             }
         });
-        CheckBox check = (CheckBox)root.findViewById(R.id.check);
-        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mCheck = (CheckBox)root.findViewById(R.id.check);
+        mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -99,6 +100,12 @@ public class DDRFragment extends Fragment {
                 }
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.DDR)) ? true : false;
+        mCheck.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

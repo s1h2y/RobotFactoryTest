@@ -33,6 +33,7 @@ public class StandbyFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private CheckBox mCheck;
 
     public StandbyFragment() {
         // Required empty public constructor
@@ -75,8 +76,8 @@ public class StandbyFragment extends Fragment {
     }
 
     private void initView(View root) {
-        CheckBox check = (CheckBox)root.findViewById(R.id.check);
-        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mCheck = (CheckBox) root.findViewById(R.id.check);
+        mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -86,6 +87,12 @@ public class StandbyFragment extends Fragment {
                 }
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.STANDBY)) ? true : false;
+        mCheck.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

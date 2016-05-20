@@ -92,9 +92,9 @@ public class MicFragment extends Fragment {
     }
 
     private void initView(View root) {
-        mTips = (TextView)root.findViewById(R.id.tips);
-        mCheck = (CheckBox)root.findViewById(R.id.check);
-        mBtn = (Button)root.findViewById(R.id.button);
+        mTips = (TextView) root.findViewById(R.id.tips);
+        mCheck = (CheckBox) root.findViewById(R.id.check);
+        mBtn = (Button) root.findViewById(R.id.button);
         mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -117,7 +117,14 @@ public class MicFragment extends Fragment {
                 }
             }
         });
+        checkResult();
     }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.MIC)) ? true : false;
+        mCheck.setChecked(checked);
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

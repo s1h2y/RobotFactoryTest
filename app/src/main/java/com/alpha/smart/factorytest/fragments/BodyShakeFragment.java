@@ -97,6 +97,12 @@ public class BodyShakeFragment extends Fragment {
                 AlphaSDK.getInstance().bodyShake(null);
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.BODY_SHAKE)) ? true : false;
+        mCheck.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

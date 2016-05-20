@@ -18,7 +18,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by shy on 16-5-19.
@@ -27,7 +30,7 @@ public class Result {
     private static HashMap<String, String> mResMap = new HashMap<>();
 
     public static void passed(String key) {
-        mResMap.remove(key);
+        mResMap.put(key, Constant.PASSED);
     }
 
     public static void failed(String key) {
@@ -171,6 +174,15 @@ public class Result {
         getResult(ctx);
         if (mResMap.isEmpty()) {
             return true;
+        } else {
+            Iterator it = mResMap.entrySet().iterator();
+            while(it.hasNext()) {
+                Map.Entry entry = (Map.Entry)it.next();
+                String val = (String)entry.getValue();
+                if (val.equals(Constant.FAILED)) {
+                    return false;
+                }
+            }
         }
         return false;
     }

@@ -102,6 +102,14 @@ public class HandFragment extends Fragment {
                 }
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.HAND_LEFT)) ? true : false;
+        mCheckLeft.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.HAND_RIGHT)) ? true : false;
+        mCheckRight.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

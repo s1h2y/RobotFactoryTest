@@ -97,9 +97,9 @@ public class RTCFragment extends Fragment {
     }
 
     private void initView(View root) {
-        mTime = (TextView)root.findViewById(R.id.time);
+        mTime = (TextView) root.findViewById(R.id.time);
         handler.sendEmptyMessage(0);
-        mCheck = (CheckBox)root.findViewById(R.id.check);
+        mCheck = (CheckBox) root.findViewById(R.id.check);
         mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -110,6 +110,12 @@ public class RTCFragment extends Fragment {
                 }
             }
         });
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.RTC)) ? true : false;
+        mCheck.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

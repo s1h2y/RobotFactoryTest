@@ -122,6 +122,12 @@ public class LightnessFragment extends Fragment {
         });
         mCur.setText(getString(R.string.cur_lightness) + Constant.DEFAULT_LIGHTNESS);
         mSeekbar.setProgress((int)(Constant.DEFAULT_LIGHTNESS / 100f * mSeekbar.getMax()));
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.LIGHTNESS)) ? true : false;
+        mCheck.setChecked(checked);
     }
 
     private void changeCurText(int cur) {

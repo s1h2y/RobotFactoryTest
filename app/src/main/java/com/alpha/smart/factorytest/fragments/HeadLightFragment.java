@@ -97,6 +97,16 @@ public class HeadLightFragment extends Fragment implements CompoundButton.OnChec
         mCheckOrigin.setOnCheckedChangeListener(this);
         mCheckRed.setOnCheckedChangeListener(this);
         mCheckGreen.setOnCheckedChangeListener(this);
+        checkResult();
+    }
+
+    private void checkResult() {
+        boolean checked = Constant.FAILED.equals(Result.get(Constant.HEAD_LIGHT_ORIGIN)) ? true : false;
+        mCheckOrigin.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.HEAD_LIGHT_GREEN)) ? true : false;
+        mCheckRed.setChecked(checked);
+        checked = Constant.FAILED.equals(Result.get(Constant.HEAD_LIGHT_RED)) ? true : false;
+        mCheckGreen.setChecked(checked);
     }
 
     @Override
