@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 import org.w3c.dom.Text;
 
@@ -82,6 +86,17 @@ public class DDRFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+        CheckBox check = (CheckBox)root.findViewById(R.id.check);
+        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Result.failed(Constant.DDR);
+                } else {
+                    Result.passed(Constant.DDR);
+                }
             }
         });
     }

@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -95,9 +96,9 @@ public class LightnessFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    //TODO
+                    Result.failed(Constant.LIGHTNESS);
                 } else {
-                    //TODO
+                    Result.passed(Constant.LIGHTNESS);
                 }
             }
         });
@@ -186,7 +187,6 @@ public class LightnessFragment extends Fragment {
         } catch (Settings.SettingNotFoundException e) {
 
         }
-        Log.d("shy", "cur " + value);
         return value;
     }
 }

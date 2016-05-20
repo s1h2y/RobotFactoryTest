@@ -9,9 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.activitys.LCDActivity;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,7 +36,7 @@ public class LCDFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    Context mActivity;
+    Context mContext;
 
     public LCDFragment() {
         // Required empty public constructor
@@ -70,16 +74,31 @@ public class LCDFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_lcd, container, false);
-        mActivity = getActivity();
+        mContext = getActivity();
+        initView(root);
+        return root;
+    }
+
+    private void initView(View root) {
         Button btn = (Button)root.findViewById(R.id.button);
+        CheckBox check = (CheckBox)root.findViewById(R.id.check);
         btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(mActivity, LCDActivity.class));
+                startActivity(new Intent(mContext, LCDActivity.class));
             }
         });
-        return root;
+        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Result.failed(Constant.LCD);
+                } else {
+                    Result.passed(Constant.LCD);
+                }
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

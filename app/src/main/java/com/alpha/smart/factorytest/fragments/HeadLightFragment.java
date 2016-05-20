@@ -15,6 +15,8 @@ import android.widget.CompoundButton;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.activitys.HeadLightActivity;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +26,7 @@ import com.alpha.smart.factorytest.activitys.HeadLightActivity;
  * Use the {@link HeadLightFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HeadLightFragment extends Fragment {
+public class HeadLightFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -92,25 +94,40 @@ public class HeadLightFragment extends Fragment {
         mCheckOrigin = (CheckBox)root.findViewById(R.id.origin);
         mCheckRed = (CheckBox)root.findViewById(R.id.red);
         mCheckGreen = (CheckBox)root.findViewById(R.id.red);
-        mCheckOrigin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-            }
-        });
-        mCheckRed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-            }
-        });
-        mCheckGreen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-            }
-        });
+        mCheckOrigin.setOnCheckedChangeListener(this);
+        mCheckRed.setOnCheckedChangeListener(this);
+        mCheckGreen.setOnCheckedChangeListener(this);
     }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+            switch (buttonView.getId()) {
+                case R.id.origin:
+                    Result.failed(Constant.HEAD_LIGHT_ORIGIN);
+                    break;
+                case R.id.red:
+                    Result.failed(Constant.HEAD_LIGHT_RED);
+                    break;
+                case R.id.green:
+                    Result.failed(Constant.HEAD_LIGHT_GREEN);
+                    break;
+            }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.origin:
+                    Result.passed(Constant.HEAD_LIGHT_ORIGIN);
+                    break;
+                case R.id.red:
+                    Result.passed(Constant.HEAD_LIGHT_RED);
+                    break;
+                case R.id.green:
+                    Result.passed(Constant.HEAD_LIGHT_GREEN);
+                    break;
+            }
+        }
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

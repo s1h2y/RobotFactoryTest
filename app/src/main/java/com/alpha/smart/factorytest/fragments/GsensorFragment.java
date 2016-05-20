@@ -12,6 +12,8 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,7 +23,7 @@ import com.alpha.smart.factorytest.R;
  * Use the {@link GsensorFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GsensorFragment extends Fragment {
+public class GsensorFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -81,24 +83,38 @@ public class GsensorFragment extends Fragment {
         mXValue = (TextView)root.findViewById(R.id.x_value);
         mYValue = (TextView)root.findViewById(R.id.y_value);
         mZValue = (TextView)root.findViewById(R.id.z_value);
-        mXCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        mXCheck.setOnCheckedChangeListener(this);
+        mYCheck.setOnCheckedChangeListener(this);
+        mZCheck.setOnCheckedChangeListener(this);
+    }
 
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+            switch (buttonView.getId()) {
+                case R.id.x_check:
+                    Result.failed(Constant.GSENSOR_X);
+                    break;
+                case R.id.y_check:
+                    Result.failed(Constant.GSENSOR_Y);
+                    break;
+                case R.id.z_check:
+                    Result.failed(Constant.GSENSOR_Z);
+                    break;
             }
-        });
-        mYCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.x_check:
+                    Result.passed(Constant.GSENSOR_X);
+                    break;
+                case R.id.y_check:
+                    Result.passed(Constant.GSENSOR_Y);
+                    break;
+                case R.id.z_check:
+                    Result.passed(Constant.GSENSOR_Z);
+                    break;
             }
-        });
-        mZCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-            }
-        });
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -124,6 +140,8 @@ public class GsensorFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this

@@ -14,6 +14,8 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -93,9 +95,9 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    
+                    Result.failed(Constant.SPEAKER_NO_SOUND);
                 } else {
-                    
+                    Result.passed(Constant.SPEAKER_NO_SOUND);
                 }
             }
         });
@@ -103,9 +105,9 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-
+                    Result.failed(Constant.SPEAKER_BOOM);
                 } else {
-
+                    Result.passed(Constant.SPEAKER_BOOM);
                 }
             }
         });
@@ -113,16 +115,18 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-
+                    Result.failed(Constant.SPEAKER_NO_CHANGE);
                 } else {
-
+                    Result.passed(Constant.SPEAKER_NO_CHANGE);
                 }
             }
         });
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                playMusic();
+                if (mNote.getText().equals(getString(R.string.ready_play))) {
+                    playMusic();
+                }
             }
         });
     }
@@ -133,6 +137,13 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
         mPlayer.setLooping(false);
         mPlayer.start();
         mPlayer.setOnCompletionListener(this);
+    }
+
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+        mNote.setText(R.string.ready_play);
+        mPlayer.release();
+        mPlayer = null;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -157,11 +168,6 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    @Override
-    public void onCompletion(MediaPlayer mp) {
-        mNote.setText(R.string.sound_play_done);
     }
 
     /**

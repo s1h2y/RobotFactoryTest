@@ -177,5 +177,11 @@
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>
 
+    <string name="test_not_finish_title">Test not done</string>
+    <string name="test_not_finish_alert">Leave test would not store data, sure to leave?</string>
+    <string name="confirm">confirm</string>
+    <string name="cancel">cancel</string>
 
+    <string name="shutdown">shutdown</string>
+    <string name="reboot">reboot</string>
 </resources>

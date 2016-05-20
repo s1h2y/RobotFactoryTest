@@ -14,6 +14,8 @@ import android.widget.CompoundButton;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.activitys.CameraActivity;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -91,9 +93,9 @@ public class CameraFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-
+                    Result.failed(Constant.CAMERA_SHOT);
                 } else {
-
+                    Result.passed(Constant.CAMERA_SHOT);
                 }
             }
         });

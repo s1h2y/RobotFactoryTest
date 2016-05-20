@@ -7,8 +7,12 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +22,7 @@ import com.alpha.smart.factorytest.R;
  * Use the {@link ButtonsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ButtonsFragment extends Fragment {
+public class ButtonsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,8 +68,24 @@ public class ButtonsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buttons, container, false);
+        View root = inflater.inflate(R.layout.fragment_buttons, container, false);
+        intiView(root);
+        return root;
+    }
+
+    private void intiView(View root) {
+        CheckBox checkUp = (CheckBox)root.findViewById(R.id.volume_up_check_box);
+        CheckBox checkDown = (CheckBox)root.findViewById(R.id.volume_down_check_box);
+        CheckBox checkRec = (CheckBox)root.findViewById(R.id.record_check_box);
+        CheckBox checkBack = (CheckBox)root.findViewById(R.id.back_check_box);
+        CheckBox checkHome = (CheckBox)root.findViewById(R.id.home_check_box);
+        CheckBox checkPower = (CheckBox)root.findViewById(R.id.power_check_box);
+        checkUp.setOnCheckedChangeListener(this);
+        checkDown.setOnCheckedChangeListener(this);
+        checkRec.setOnCheckedChangeListener(this);
+        checkBack.setOnCheckedChangeListener(this);
+        checkHome.setOnCheckedChangeListener(this);
+        checkPower.setOnCheckedChangeListener(this);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -90,6 +110,53 @@ public class ButtonsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+            switch (buttonView.getId()) {
+                case R.id.volume_up_check_box:
+                    Result.failed(Constant.BUTTON_VOL_UP);
+                    break;
+                case R.id.volume_down_check_box:
+                    Result.failed(Constant.BUTTON_VOL_DOWN);
+                    break;
+                case R.id.record_check_box:
+                    Result.failed(Constant.BUTTON_REC);
+                    break;
+                case R.id.back_check_box:
+                    Result.failed(Constant.BUTTON_BACK);
+                    break;
+                case R.id.home_check_box:
+                    Result.failed(Constant.BUTTON_HOME);
+                    break;
+                case R.id.power_check_box:
+                    Result.failed(Constant.BUTTON_POWER);
+                    break;
+            }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.volume_up_check_box:
+                    Result.passed(Constant.BUTTON_VOL_UP);
+                    break;
+                case R.id.volume_down_check_box:
+                    Result.passed(Constant.BUTTON_VOL_DOWN);
+                    break;
+                case R.id.record_check_box:
+                    Result.passed(Constant.BUTTON_REC);
+                    break;
+                case R.id.back_check_box:
+                    Result.passed(Constant.BUTTON_BACK);
+                    break;
+                case R.id.home_check_box:
+                    Result.passed(Constant.BUTTON_HOME);
+                    break;
+                case R.id.power_check_box:
+                    Result.passed(Constant.BUTTON_POWER);
+                    break;
+            }
+        }
     }
 
     /**

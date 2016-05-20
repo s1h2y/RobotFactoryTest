@@ -173,4 +173,13 @@
     <string name="monitor_detail">点击开始检测，查看监控指示灯是否亮灯。\n如监控指示灯没有亮灯，请打勾。</string>
     <string name="monitor_fail">监控指示灯不亮</string>
 
+    <string name="test_not_finish_title">未完成检测</string>
+    <string name="test_not_finish_alert">退出检测将不会对已检测数据进行保存，确认退出吗？</string>
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+
+    <string name="shutdown">关机</string>
+    <string name="reboot">重启</string>
+
+
 </resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/power_dialog"
+    android:columnCount="3"
+    android:padding="50dp">
+
+    <Button
+        android:id="@+id/shutdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shutdown" />
+
+    <Button
+        android:id="@+id/reboot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/reboot" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/cancel" />
+
+
+    <TextView
+        style="@style/Widget.TextView.StyleA"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/shutdown"
+        android:textColor="@color/text_b" />
+
+    <TextView
+        style="@style/Widget.TextView.StyleA"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/reboot"
+        android:layout_marginLeft="50dp"
+        android:textColor="@color/text_b" />
+
+    <TextView
+        style="@style/Widget.TextView.StyleA"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/cancel"
+        android:layout_marginLeft="50dp"
+        android:textColor="@color/text_b" />
+
+
+</GridLayout>

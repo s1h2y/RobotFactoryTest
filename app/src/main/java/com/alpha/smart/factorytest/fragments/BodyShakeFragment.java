@@ -12,6 +12,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,12 +77,16 @@ public class BodyShakeFragment extends Fragment {
     }
 
     private void initView(View root) {
-        mCheck = (CheckBox)root.findViewById(R.id.check);
-        mBtn = (Button)root.findViewById(R.id.button);
+        mCheck = (CheckBox) root.findViewById(R.id.check);
+        mBtn = (Button) root.findViewById(R.id.button);
         mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                if (isChecked) {
+                    Result.failed(Constant.BODY_SHAKE);
+                } else {
+                    Result.passed(Constant.BODY_SHAKE);
+                }
             }
         });
         mBtn.setOnClickListener(new View.OnClickListener() {

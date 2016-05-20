@@ -11,6 +11,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,13 +81,21 @@ public class HandFragment extends Fragment {
         mCheckLeft.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                if (isChecked) {
+                    Result.failed(Constant.HAND_LEFT);
+                } else {
+                    Result.passed(Constant.HAND_LEFT);
+                }
             }
         });
         mCheckRight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                if (isChecked) {
+                    Result.failed(Constant.HAND_RIGHT);
+                } else {
+                    Result.passed(Constant.HAND_RIGHT);
+                }
             }
         });
     }

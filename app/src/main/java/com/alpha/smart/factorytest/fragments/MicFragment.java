@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 import java.io.File;
 import java.io.IOException;
@@ -85,7 +86,7 @@ public class MicFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_mic, container, false);
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/audiorecordtest.3gp";
+        mFileName += Constant.RECORD_FILE_NAME;
         initView(root);
         return root;
     }
@@ -97,7 +98,11 @@ public class MicFragment extends Fragment {
         mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                if (isChecked) {
+                    Result.failed(Constant.MIC);
+                } else {
+                    Result.passed(Constant.MIC);
+                }
             }
         });
         mBtn.setOnClickListener(new View.OnClickListener() {

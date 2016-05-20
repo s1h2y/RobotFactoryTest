@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,6 +27,8 @@ import android.widget.ToggleButton;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.beans.WifiBean;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 import com.alpha.smart.factorytest.utils.WifiUtils;
 
 import java.util.ArrayList;
@@ -196,6 +199,28 @@ public class WifiFragment extends Fragment {
             }
         });
         mSwitch.setChecked(true);
+        CheckBox checkNoNetwork = (CheckBox)root.findViewById(R.id.check_no_network);
+        CheckBox checkConnectFail = (CheckBox)root.findViewById(R.id.check_connect_fail);
+        checkConnectFail.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Result.failed(Constant.WIFI_SEARCH);
+                } else {
+                    Result.passed(Constant.WIFI_SEARCH);
+                }
+            }
+        });
+        checkConnectFail.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Result.failed(Constant.WIFI_CONNECT);
+                } else {
+                    Result.passed(Constant.WIFI_CONNECT);
+                }
+            }
+        });
     }
 
 

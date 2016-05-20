@@ -6,14 +6,20 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.activitys.TouchActivity;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.MyLog;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,7 +77,6 @@ public class TouchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_touch, container, false);
         initView(root);
         return root;
@@ -79,10 +84,22 @@ public class TouchFragment extends Fragment {
 
     private void initView(View root) {
         Button btn = (Button) root.findViewById(R.id.button);
+        final CheckBox check = (CheckBox)root.findViewById(R.id.check);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Result.failed(Constant.LCD);
                 startActivity(new Intent(mActivity, TouchActivity.class));
+            }
+        });
+        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Result.failed(Constant.TOUCH);
+                } else {
+                    Result.passed(Constant.TOUCH);
+                }
             }
         });
     }

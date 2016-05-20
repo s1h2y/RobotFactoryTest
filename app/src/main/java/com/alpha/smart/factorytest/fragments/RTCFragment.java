@@ -12,6 +12,8 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,7 +82,11 @@ public class RTCFragment extends Fragment {
         mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                if (isChecked) {
+                    Result.failed(Constant.RTC);
+                } else {
+                    Result.passed(Constant.RTC);
+                }
             }
         });
     }

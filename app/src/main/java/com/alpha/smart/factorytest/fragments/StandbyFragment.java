@@ -7,8 +7,12 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.Result;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,7 +69,23 @@ public class StandbyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_standby, container, false);
+        View root = inflater.inflate(R.layout.fragment_standby, container, false);
+        initView(root);
+        return root;
+    }
+
+    private void initView(View root) {
+        CheckBox check = (CheckBox)root.findViewById(R.id.check);
+        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Result.failed(Constant.STANDBY);
+                } else {
+                    Result.passed(Constant.STANDBY);
+                }
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
