@@ -5,6 +5,7 @@
     tools:context="com.alpha.smart.factorytest.fragments.HandFragment">
 
     <ImageView
+        android:id="@+id/image"
         android:layout_width="276dp"
         android:layout_height="331dp"
         android:layout_marginLeft="60dp"

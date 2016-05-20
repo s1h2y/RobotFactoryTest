@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.fragments.MyDialogFragment;
+import com.alpha.smart.factorytest.utils.MyLog;
 import com.alpha.smart.factorytest.utils.Result;
 
 public class MainActivity extends Activity {
@@ -61,6 +62,8 @@ public class MainActivity extends Activity {
         mStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MyLog.d("clear last result!!");
+                Result.clear();
                 startActivity(new Intent(MainActivity.this, TestActivity.class));
             }
         });

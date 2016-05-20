@@ -11,23 +11,39 @@ import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
 
+import sdk.robot.intell.alpha.cn.alphasdkbase.utils.MessageUtils;
+import sdk.robot.intell.alpha.cn.alphasdklibrary.service.AlphaSDK;
+
 public class HeadLightActivity extends Activity {
     private final int mColors[] = {Color.parseColor("#4FA5F1"), Color.parseColor("#F97664"), Color.parseColor("#2CBA16")};
     private final int mTexts[] = {R.string.origin_color, R.string.red_color, R.string.green_color};
     private final int SECOND_3 = 3000;
     private int index = 0;
     private TextView mText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_head_light);
-        mText = (TextView)findViewById(R.id.tips);
+        mText = (TextView) findViewById(R.id.tips);
         mHandler.sendEmptyMessage(0);
     }
+
     void switchLight() {
         //TODO turn on lights
         mText.setText(mTexts[index]);
         mText.setTextColor(mColors[index]);
+        switch(index) {
+            case 0:
+                AlphaSDK.getInstance().ledControl(MessageUtils.LEDTYPE_BLUE_LIGHT);
+                break;
+            case 1:
+                AlphaSDK.getInstance().ledControl(MessageUtils.LEDTYPE_RED_BLINK);
+                break;
+            case 2:
+                AlphaSDK.getInstance().ledControl(MessageUtils.LEDTYPE_YELLOW_BLINK);
+                break;
+        }
         index++;
     }
 
@@ -39,6 +55,7 @@ public class HeadLightActivity extends Activity {
                 switchLight();
                 sendEmptyMessageDelayed(2, SECOND_3);
             } else {
+                AlphaSDK.getInstance().ledControl(MessageUtils.LEDTYPE_OFF);
                 finish();
             }
         }

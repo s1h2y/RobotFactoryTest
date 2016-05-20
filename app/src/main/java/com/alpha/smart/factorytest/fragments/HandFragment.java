@@ -4,11 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.utils.Constant;
@@ -35,6 +37,7 @@ public class HandFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private CheckBox mCheckLeft;
     private CheckBox mCheckRight;
+    private ImageView mImage;
 
     public HandFragment() {
         // Required empty public constructor
@@ -76,6 +79,7 @@ public class HandFragment extends Fragment {
     }
 
     private void initView(View root) {
+        mImage = (ImageView)root.findViewById(R.id.image);
         mCheckLeft = (CheckBox)root.findViewById(R.id.left);
         mCheckRight = (CheckBox)root.findViewById(R.id.right);
         mCheckLeft.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -137,5 +141,16 @@ public class HandFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public void onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_H:
+                mCheckLeft.setEnabled(false);
+                break;
+            case KeyEvent.KEYCODE_J:
+                mCheckRight.setEnabled(false);
+                break;
+        }
     }
 }

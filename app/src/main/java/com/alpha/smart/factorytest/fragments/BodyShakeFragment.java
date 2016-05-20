@@ -15,6 +15,8 @@ import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.utils.Constant;
 import com.alpha.smart.factorytest.utils.Result;
 
+import sdk.robot.intell.alpha.cn.alphasdklibrary.service.AlphaSDK;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -92,7 +94,7 @@ public class BodyShakeFragment extends Fragment {
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AlphaSDK.getInstance().bodyShake(null);
             }
         });
     }

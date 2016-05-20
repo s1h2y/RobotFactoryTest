@@ -20,16 +20,13 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-//    testCompile 'junit:junit:4.12'
-//    compile 'com.android.support:appcompat-v7:23.3.0'
-//    compile 'com.android.support:support-v4:23.3.0'
-
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //    testCompile 'junit:junit:4.12'
+    //    compile 'com.android.support:appcompat-v7:23.3.0'
+    //    compile 'com.android.support:support-v4:23.3.0'
     //Core
-//    compile 'com.github.gabrielemariotti.cards:cardslib-core:2.1.0'
-
+    //    compile 'com.github.gabrielemariotti.cards:cardslib-core:2.1.0'
     //Optional for built-in cards
-//    compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.1.0'
-
+    //    compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.1.0'
+    compile files('libs/AlphaSDKV1.0.1.jar')
 }

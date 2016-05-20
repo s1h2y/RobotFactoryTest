@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,9 @@ import android.widget.TextView;
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.utils.Constant;
 import com.alpha.smart.factorytest.utils.Result;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,8 +81,24 @@ public class RTCFragment extends Fragment {
         return root;
     }
 
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            mTime.setText(getTime());
+            sendEmptyMessageDelayed(0, 1000);
+            super.handleMessage(msg);
+        }
+    };
+
+    private static String getTime() {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        String t = format.format(new Date());
+        return t;
+    }
+
     private void initView(View root) {
         mTime = (TextView)root.findViewById(R.id.time);
+        handler.sendEmptyMessage(0);
         mCheck = (CheckBox)root.findViewById(R.id.check);
         mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

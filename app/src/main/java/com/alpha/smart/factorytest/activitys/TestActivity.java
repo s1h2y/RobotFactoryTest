@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,11 +25,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.fragments.HandFragment;
 import com.alpha.smart.factorytest.utils.Constant;
 import com.alpha.smart.factorytest.utils.MyLog;
 import com.alpha.smart.factorytest.utils.Result;
 
 import java.util.HashSet;
+
+import sdk.robot.intell.alpha.cn.alphasdklibrary.service.AlphaSDK;
 
 public class TestActivity extends Activity {
 
@@ -39,12 +43,14 @@ public class TestActivity extends Activity {
     private PanelAdapter mAdapter;
     private HashSet<String> mItems;
     private Button mPower;
+    Fragment mCurFrag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         mContext = this;
+        AlphaSDK.init(this);
         mItems = new HashSet<String>();
         for (int i = 0; i < Constant.fragments.length; i++) {
             mItems.add(Constant.fragments[i].className);
@@ -53,12 +59,13 @@ public class TestActivity extends Activity {
         initView();
     }
 
+
     @Override
-    protected void onStop() {
-        super.onStop();
-        if (mItems.isEmpty()) {
-            Result.saveResult(this);
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (mCurFrag instanceof HandFragment) {
+            ((HandFragment) mCurFrag).onKeyDown(keyCode, event);
         }
+        return super.onKeyDown(keyCode, event);
     }
 
     private void showDialog() {
@@ -80,6 +87,7 @@ public class TestActivity extends Activity {
     @Override
     public void onBackPressed() {
         if (mItems.isEmpty()) {
+            Result.saveResult(this);
             super.onBackPressed();
         } else {
             showDialog();
@@ -94,7 +102,6 @@ public class TestActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentTransaction fragmentTransaction = mFragManager.beginTransaction();
-                Fragment n = null;
                 Class<?> clazz = null;
                 try {
                     clazz = mContext.getClassLoader().loadClass(Constant.fragments[position].className);
@@ -102,14 +109,14 @@ public class TestActivity extends Activity {
                     e.printStackTrace();
                 }
                 try {
-                    n = (Fragment) clazz.newInstance();
+                    mCurFrag = (Fragment) clazz.newInstance();
+                    fragmentTransaction.replace(R.id.fragments, mCurFrag, Constant.fragments[position].tag);
+                    fragmentTransaction.commit();
                 } catch (InstantiationException e) {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
-                fragmentTransaction.replace(R.id.fragments, n, Constant.fragments[position].tag);
-                fragmentTransaction.commit();
                 mAdapter.setSelectedItem(position);
                 mAdapter.notifyDataSetChanged();
                 mItems.remove(Constant.fragments[position].className);

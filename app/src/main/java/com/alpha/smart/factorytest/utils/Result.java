@@ -48,12 +48,14 @@ public class Result {
         SharedPreferences sp = ctx.getSharedPreferences("test", ctx.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(Constant.TEST_FILE, path);
+        MyLog.d("saveing file " + path);
         editor.commit();
     }
 
     public static void getResult(Context ctx) {
         SharedPreferences sp = ctx.getSharedPreferences("test", ctx.MODE_PRIVATE);
         String path = sp.getString(Constant.TEST_FILE, "");
+        MyLog.d("get file " + path);
         if (null != path && !path.isEmpty() && !path.equals("")) {
             JSONObject json = fileToJson(path);
             mResMap = jsonToMap(json);
@@ -181,5 +183,9 @@ public class Result {
             return true;
         }
         return false;
+    }
+
+    public static void clear() {
+        mResMap.clear();
     }
 }
