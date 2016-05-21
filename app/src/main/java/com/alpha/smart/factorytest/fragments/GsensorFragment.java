@@ -1,6 +1,10 @@
 package com.alpha.smart.factorytest.fragments;
 
 import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -23,7 +27,7 @@ import com.alpha.smart.factorytest.utils.Result;
  * Use the {@link GsensorFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GsensorFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
+public class GsensorFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, SensorEventListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,6 +40,9 @@ public class GsensorFragment extends Fragment implements CompoundButton.OnChecke
     private OnFragmentInteractionListener mListener;
     private CheckBox mXCheck, mYCheck, mZCheck;
     private TextView mXValue, mYValue, mZValue;
+
+    private SensorManager mSensorManager;
+    private Sensor mSensor;
 
     public GsensorFragment() {
         // Required empty public constructor
@@ -66,6 +73,10 @@ public class GsensorFragment extends Fragment implements CompoundButton.OnChecke
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+
     }
 
     @Override
@@ -149,6 +160,24 @@ public class GsensorFragment extends Fragment implements CompoundButton.OnChecke
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        mSensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (null == event.sensor) {
+            return;
+        }
+        if (Sensor.TYPE_ACCELEROMETER == event.sensor.getType()) {
+            mXValue.setText(String.valueOf(event.values[0]));
+            mYValue.setText(String.valueOf(event.values[1]));
+            mZValue.setText(String.valueOf(event.values[2]));
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
     }
 
 

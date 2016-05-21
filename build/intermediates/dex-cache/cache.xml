@@ -2,25 +2,11 @@
 <items version="2" >
 
     <item
-        jar="E:\alpha_work\FactoryTest\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="365a982948758d13008c3488fb21d407a790c837">
-        <dex dex="E:\alpha_work\FactoryTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_231ddda95866e01f0451c71fc4debec3fc124d4e\classes.dex" />
-    </item>
-    <item
-        jar="E:\alpha_work\FactoryTest\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="fa667d4c03cc092d696605183e6526bb17422c4e">
-        <dex dex="E:\alpha_work\FactoryTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_2f75bab629929bc8a5c87ba3cd9ac442750e1354\classes.dex" />
-    </item>
-    <item
         jar="E:\alpha_work\FactoryTest\app\libs\AlphaSDKV1.0.1.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.3"
         sha1="d1f8c047827f8ad192041ed6838129cb4cc060ab">
-        <dex dex="E:\alpha_work\FactoryTest\app\build\intermediates\transforms\dex\debug\folders\1000\2\AlphaSDKV1.0.1_48f363c6b08b9bed66d7c211d82801f6ce4651a7\classes.dex" />
+        <dex dex="E:\alpha_work\FactoryTest\app\build\intermediates\pre-dexed\debug\AlphaSDKV1.0.1_48f363c6b08b9bed66d7c211d82801f6ce4651a7.jar" />
     </item>
 
 </items>
