@@ -25,6 +25,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
+import com.alpha.smart.factorytest.fragments.BackDialogFragment;
 import com.alpha.smart.factorytest.fragments.HandFragment;
 import com.alpha.smart.factorytest.utils.Constant;
 import com.alpha.smart.factorytest.utils.MyLog;
@@ -70,16 +71,17 @@ public class TestActivity extends Activity {
 
     private void showDialog() {
         MyLog.d("not finish");
-        new AlertDialog.Builder(this).setTitle(R.string.test_not_finish_title)
-                .setMessage(R.string.test_not_finish_alert)
-                .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        MyLog.d("no store data");
-                        finish();
-                    }
-                })
-                .setNegativeButton(R.string.cancel, null).show();
+//        new AlertDialog.Builder(this).setTitle(R.string.test_not_finish_title)
+//                .setMessage(R.string.test_not_finish_alert)
+//                .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        MyLog.d("no store data");
+//                        finish();
+//                    }
+//                })
+//                .setNegativeButton(R.string.cancel, null).show();
+        new BackDialogFragment().show(getFragmentManager(), "back");
     }
 
 
@@ -90,6 +92,7 @@ public class TestActivity extends Activity {
             Result.saveResult(this);
             super.onBackPressed();
         } else {
+            MyLog.d("not finish");
             showDialog();
         }
     }
@@ -204,6 +207,7 @@ public class TestActivity extends Activity {
             holder.text.setText(Constant.fragments[position].title);
             if (position == selectItem) {
                 convertView.setBackgroundColor(Color.parseColor("#EFEFEF"));
+//                convertView.setBackgroundResource(R.drawable.list_selected);
             } else {
                 convertView.setBackgroundColor(Color.TRANSPARENT);
             }
@@ -221,6 +225,5 @@ public class TestActivity extends Activity {
 
         private int selectItem = -1;
     }
-
 
 }

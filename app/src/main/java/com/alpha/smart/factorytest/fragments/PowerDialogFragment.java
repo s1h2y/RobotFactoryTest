@@ -12,7 +12,8 @@ import com.alpha.smart.factorytest.R;
 /**
  * Created by shy on 16-5-19.
  */
-public class MyDialogFragment extends DialogFragment{
+public class PowerDialogFragment extends DialogFragment{
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);

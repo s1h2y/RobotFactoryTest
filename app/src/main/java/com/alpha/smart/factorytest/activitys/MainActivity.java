@@ -1,9 +1,6 @@
 package com.alpha.smart.factorytest.activitys;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
-import com.alpha.smart.factorytest.fragments.MyDialogFragment;
+import com.alpha.smart.factorytest.fragments.PowerDialogFragment;
 import com.alpha.smart.factorytest.utils.MyLog;
 import com.alpha.smart.factorytest.utils.Result;
 
@@ -84,7 +81,7 @@ public class MainActivity extends Activity {
     }
 
     private void showPowerDialog() {
-        new MyDialogFragment().show(getFragmentManager(), "power");
+        new PowerDialogFragment().show(getFragmentManager(), "power");
     }
 
     private void showResultOK() {
