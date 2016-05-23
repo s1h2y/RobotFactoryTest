@@ -13,7 +13,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import com.alpha.smart.factorytest.R;
-import com.alpha.smart.factorytest.activitys.CameraActivity;
+import com.alpha.smart.factorytest.activitys.CameraResultActivity;
+import com.alpha.smart.factorytest.activitys.CaptureActivity;
 import com.alpha.smart.factorytest.utils.Constant;
 import com.alpha.smart.factorytest.utils.Result;
 
@@ -86,7 +87,7 @@ public class CameraFragment extends Fragment {
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(mContext, CameraActivity.class));
+                startActivity(new Intent(mContext, CaptureActivity.class));
             }
         });
         mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
