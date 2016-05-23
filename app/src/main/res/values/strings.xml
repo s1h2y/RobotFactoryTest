@@ -36,6 +36,7 @@
     <string name="list_ddr">DDR</string>
     <string name="list_storage">storage</string>
     <string name="list_monitor_light">monitor light</string>
+    <string name="list_speech_recognize">speech recognize</string>
 
     <!-- version items -->
     <string name="item_version">system version</string>
@@ -173,6 +174,15 @@
     <string name="monitor_detail">click to test monitor light.\ncheck if no light.</string>
     <string name="monitor_fail">monitor light fail</string>
 
+    <!-- speech -->
+    <string name="speech_detail">start to speech recognize\ncheck if recognized failed</string>
+    <string name="ready_speach">ready recognize...</string>
+    <string name="recognizing">recognizing...</string>
+    <string name="speech_result">recognize result:</string>
+    <string name="speech_fail">recognize fail</string>
+    <string name="start_speech">start recognize</string>
+    <string name="stop_speech">stop recognize</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_item_list">Items</string>
@@ -214,5 +224,8 @@
     <string name="time">time</string>
     <string name="ddr">ddr test</string>
     <string name="monitor">monitor light</string>
+    <string name="speech">speech recognize</string>
+
+    <string name="wait_copy">wait for copy</string>
 
 </resources>

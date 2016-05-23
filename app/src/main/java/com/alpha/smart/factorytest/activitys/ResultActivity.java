@@ -69,7 +69,10 @@ public class ResultActivity extends Activity {
             new ResultBean(null, TYPE_TITLE, R.string.list_ddr, true),
             new ResultBean(Constant.DDR, TYPE_ITEM, R.string.ddr, true),
             new ResultBean(null, TYPE_TITLE, R.string.list_monitor_light, true),
-            new ResultBean(Constant.MONITOR, TYPE_ITEM, R.string.monitor, true)};
+            new ResultBean(Constant.MONITOR, TYPE_ITEM, R.string.monitor, true),
+            new ResultBean(null, TYPE_TITLE, R.string.speech, true),
+            new ResultBean(Constant.SPEECH, TYPE_ITEM, R.string.speech, true),
+    };
     private Context mContext;
     private MyAdapter myAdapter;
     private TextView mResText;

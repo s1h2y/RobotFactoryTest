@@ -20,6 +20,7 @@ import com.alpha.smart.factorytest.fragments.MicFragment;
 import com.alpha.smart.factorytest.fragments.MonitorFragment;
 import com.alpha.smart.factorytest.fragments.RTCFragment;
 import com.alpha.smart.factorytest.fragments.SpeakerFragment;
+import com.alpha.smart.factorytest.fragments.SpeechFragment;
 import com.alpha.smart.factorytest.fragments.StandbyFragment;
 import com.alpha.smart.factorytest.fragments.StorageFragment;
 import com.alpha.smart.factorytest.fragments.TouchFragment;
@@ -52,6 +53,7 @@ public class Constant {
             new FragmentBean(R.drawable.list_ddr, R.drawable.ddr_grey, R.string.list_ddr, "DDR", DDRFragment.class.getName()),
             new FragmentBean(R.drawable.list_storage, R.drawable.storage_grey, R.string.list_storage, "storage", StorageFragment.class.getName()),
             new FragmentBean(R.drawable.list_monitor, R.drawable.monitor_grey, R.string.list_monitor_light, "monitor light", MonitorFragment.class.getName()),
+            new FragmentBean(R.drawable.list_mic, R.drawable.mic_grey, R.string.list_speech_recognize, "speech recognize", SpeechFragment.class.getName()),
     };
     public static final String PASSED = "passed";
     public static final String FAILED = "failed";
@@ -90,8 +92,43 @@ public class Constant {
     public static final String RTC = "rtc";
     public static final String DDR = "ddr";
     public static final String MONITOR = "monitor";
+    public static final String SPEECH = "speech";
 
     public static final String RECORD_FILE_NAME = "/audiorecordtest.3gp";
 
     public static final String TEST_FILE = "factory_test_result_path";
+
+    //baidu speech start
+    public static final String EXTRA_KEY = "key";
+    public static final String EXTRA_SECRET = "secret";
+    public static final String EXTRA_SAMPLE = "sample";
+    public static final String EXTRA_SOUND_START = "sound_start";
+    public static final String EXTRA_SOUND_END = "sound_end";
+    public static final String EXTRA_SOUND_SUCCESS = "sound_success";
+    public static final String EXTRA_SOUND_ERROR = "sound_error";
+    public static final String EXTRA_SOUND_CANCEL = "sound_cancel";
+    public static final String EXTRA_INFILE = "infile";
+    public static final String EXTRA_OUTFILE = "outfile";
+
+    public static final String EXTRA_LANGUAGE = "language";
+    public static final String EXTRA_NLU = "nlu";
+    public static final String EXTRA_VAD = "vad";
+    public static final String EXTRA_PROP = "prop";
+
+    public static final String EXTRA_OFFLINE_ASR_BASE_FILE_PATH = "asr-base-file-path";
+    public static final String EXTRA_LICENSE_FILE_PATH = "license-file-path";
+    public static final String EXTRA_OFFLINE_LM_RES_FILE_PATH = "lm-res-file-path";
+    public static final String EXTRA_OFFLINE_SLOT_DATA = "slot-data";
+    public static final String EXTRA_OFFLINE_SLOT_NAME = "name";
+    public static final String EXTRA_OFFLINE_SLOT_SONG = "song";
+    public static final String EXTRA_OFFLINE_SLOT_ARTIST = "artist";
+    public static final String EXTRA_OFFLINE_SLOT_APP = "app";
+    public static final String EXTRA_OFFLINE_SLOT_USERCOMMAND = "usercommand";
+
+    public static final int SAMPLE_8K = 8000;
+    public static final int SAMPLE_16K = 16000;
+
+    public static final String VAD_SEARCH = "search";
+    public static final String VAD_INPUT = "input";
+    //baidu speech end
 }

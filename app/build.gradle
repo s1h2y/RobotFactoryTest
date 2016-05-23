@@ -29,4 +29,5 @@ dependencies {
     //Optional for built-in cards
     //    compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.1.0'
     compile files('libs/AlphaSDKV1.0.1.jar')
+    compile files('libs/VoiceRecognition-2.0.1.jar')
 }
