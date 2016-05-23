@@ -305,7 +305,7 @@ public class ActivityTouch extends Activity implements RecognitionListener {
         } catch (Exception e) {
             print("origin_result=[warning: bad json]\n" + json_res);
         }
-        btn.setText("开始");
+        btn.setText("按住开始");
         String strEnd2Finish = "";
         if (end2finish < 60 * 1000) {
             strEnd2Finish = "(waited " + end2finish + "ms)";
