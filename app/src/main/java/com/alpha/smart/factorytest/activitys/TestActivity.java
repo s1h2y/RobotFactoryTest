@@ -86,17 +86,7 @@ public class TestActivity extends Activity {
 
     private void showDialog() {
         MyLog.d("not finish");
-        new AlertDialog.Builder(this).setTitle(R.string.test_not_finish_title)
-                .setMessage(R.string.test_not_finish_alert)
-                .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        MyLog.d("no store data");
-                        finish();
-                    }
-                })
-                .setNegativeButton(R.string.cancel, null).show();
-//        new BackDialogFragment().show(getFragmentManager(), "back");
+        new BackDialogFragment().show(getFragmentManager(), "back");
     }
 
 
