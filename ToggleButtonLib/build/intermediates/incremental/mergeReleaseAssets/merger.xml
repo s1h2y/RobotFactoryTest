@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/shy/AndroidStudioProjects/FactoryTest/ToggleButtonLib/assets"/><source path="/home/shy/AndroidStudioProjects/FactoryTest/ToggleButtonLib/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/home/shy/AndroidStudioProjects/FactoryTest/ToggleButtonLib/src/release/assets"/></dataSet></merger>

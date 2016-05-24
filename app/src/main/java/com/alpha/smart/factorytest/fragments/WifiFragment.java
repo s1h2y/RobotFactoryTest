@@ -23,7 +23,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
+import com.zcw.togglebutton.ToggleButton;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.beans.WifiBean;
@@ -185,10 +185,25 @@ public class WifiFragment extends Fragment {
                 mWifiUtils.connectWifi(mList.get(position));
             }
         });
-        mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//        mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                    mWifiUtils.openWifi();
+//                    mWifiUtils.startScan();
+//                } else {
+//                    mWifiUtils.closeWifi();
+//                    mList.clear();
+//                    mTips.setText(R.string.choose_net);
+//                    mAdapter.notifyDataSetChanged();
+//                }
+//            }
+//        });
+//        mSwitch.setChecked(true);
+        mSwitch.setOnToggleChanged(new ToggleButton.OnToggleChanged() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onToggle(boolean on) {
+                if (on) {
                     mWifiUtils.openWifi();
                     mWifiUtils.startScan();
                 } else {
@@ -199,7 +214,6 @@ public class WifiFragment extends Fragment {
                 }
             }
         });
-        mSwitch.setChecked(true);
         mCheckSearch = (CheckBox) root.findViewById(R.id.check_no_network);
         mCheckConnect = (CheckBox) root.findViewById(R.id.check_connect_fail);
         mCheckSearch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -290,7 +304,7 @@ public class WifiFragment extends Fragment {
                     if (NetworkInfo.State.CONNECTED == state) {
                         Log.d("shy", "wifi connected");
                         String ssid = mWifiUtils.getCurSSID();
-                        if (mSwitch.isChecked() && ssid != null && !ssid.contains("unknown")) {
+                        if (mSwitch.getToggleStatus() && ssid != null && !ssid.contains("unknown")) {
                             mTips.setText(getString(R.string.connected) + ssid);
                         }
                     }
