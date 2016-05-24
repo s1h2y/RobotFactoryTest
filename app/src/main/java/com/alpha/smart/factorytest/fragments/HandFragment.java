@@ -153,11 +153,23 @@ public class HandFragment extends Fragment {
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
-            case KeyEvent.KEYCODE_H:
+            case KeyEvent.KEYCODE_J:
+                mImage.setImageResource(R.drawable.hand_left);
                 mCheckLeft.setEnabled(false);
                 return true;
-            case KeyEvent.KEYCODE_J:
+            case KeyEvent.KEYCODE_H:
                 mCheckRight.setEnabled(false);
+                mImage.setImageResource(R.drawable.hand_right);
+                return true;
+        }
+        return false;
+    }
+
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_H:
+            case KeyEvent.KEYCODE_J:
+                mImage.setImageResource(R.drawable.body);
                 return true;
         }
         return false;

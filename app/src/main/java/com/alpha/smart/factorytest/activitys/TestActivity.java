@@ -76,7 +76,9 @@ public class TestActivity extends Activity {
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         boolean handled = false;
-        if (mCurFrag instanceof ButtonsFragment) {
+        if (mCurFrag instanceof HandFragment) {
+            handled = ((HandFragment) mCurFrag).onKeyUp(keyCode, event);
+        } else if (mCurFrag instanceof ButtonsFragment) {
             handled = ((ButtonsFragment) mCurFrag).onKeyUp(keyCode, event);
         }
         return handled ? handled : super.onKeyUp(keyCode, event);
