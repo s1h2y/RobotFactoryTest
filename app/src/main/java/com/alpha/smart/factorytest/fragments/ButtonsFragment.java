@@ -165,15 +165,19 @@ public class ButtonsFragment extends Fragment implements CompoundButton.OnChecke
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
                 mButtons.setImageResource(R.drawable.button_vol_up);
+                mCheckUp.setEnabled(false);
                 return true;
             case KeyEvent.KEYCODE_VOLUME_DOWN:
                 mButtons.setImageResource(R.drawable.button_vol_down);
+                mCheckDown.setEnabled(false);
                 return true;
             case KeyEvent.KEYCODE_D:
                 mButtons.setImageResource(R.drawable.button_rec);
+                mCheckRec.setEnabled(false);
                 return true;
             case KeyEvent.KEYCODE_BACK:
                 mButtons.setImageResource(R.drawable.button_back);
+                mCheckBack.setEnabled(false);
                 return true;
         }
         return false;
