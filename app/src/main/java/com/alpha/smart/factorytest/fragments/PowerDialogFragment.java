@@ -47,7 +47,7 @@ public class PowerDialogFragment extends DialogFragment {
                 dismiss();
             }
         });
-        mShutdown.setOnClickListener(new View.OnClickListener() {
+        mCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
