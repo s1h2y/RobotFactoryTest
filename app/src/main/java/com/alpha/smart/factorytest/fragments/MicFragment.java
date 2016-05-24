@@ -148,6 +148,16 @@ public class MicFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        if (null != mRecorder) {
+            mRecorder.stop();
+            mRecorder.release();
+            mRecorder = null;
+        }
+        if (null != mPlayer) {
+            mPlayer.stop();
+            mPlayer.release();
+            mPlayer = null;
+        }
     }
 
     /**
