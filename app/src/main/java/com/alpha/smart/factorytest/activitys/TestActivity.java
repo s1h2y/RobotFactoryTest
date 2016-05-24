@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.fragments.BackDialogFragment;
+import com.alpha.smart.factorytest.fragments.ButtonsFragment;
 import com.alpha.smart.factorytest.fragments.HandFragment;
 import com.alpha.smart.factorytest.utils.Constant;
 import com.alpha.smart.factorytest.utils.MyLog;
@@ -63,10 +64,22 @@ public class TestActivity extends Activity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        boolean handled = false;
         if (mCurFrag instanceof HandFragment) {
-            ((HandFragment) mCurFrag).onKeyDown(keyCode, event);
+            handled = ((HandFragment) mCurFrag).onKeyDown(keyCode, event);
+        } else if (mCurFrag instanceof ButtonsFragment) {
+            handled = ((ButtonsFragment) mCurFrag).onKeyDown(keyCode, event);
         }
-        return super.onKeyDown(keyCode, event);
+        return handled ? handled : super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        boolean handled = false;
+        if (mCurFrag instanceof ButtonsFragment) {
+            handled = ((ButtonsFragment) mCurFrag).onKeyUp(keyCode, event);
+        }
+        return handled ? handled : super.onKeyUp(keyCode, event);
     }
 
     private void showDialog() {

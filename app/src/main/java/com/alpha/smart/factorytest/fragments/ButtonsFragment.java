@@ -4,11 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.utils.Constant;
@@ -33,7 +35,8 @@ public class ButtonsFragment extends Fragment implements CompoundButton.OnChecke
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private CheckBox mCheckUp, mCheckDown, mCheckRec, mCheckBack, mCheckHome, mCheckPower;
+    private CheckBox mCheckUp, mCheckDown, mCheckRec, mCheckBack;
+    private ImageView mButtons;
 
     public ButtonsFragment() {
         // Required empty public constructor
@@ -75,18 +78,15 @@ public class ButtonsFragment extends Fragment implements CompoundButton.OnChecke
     }
 
     private void intiView(View root) {
+        mButtons = (ImageView) root.findViewById(R.id.buttons);
         mCheckUp = (CheckBox) root.findViewById(R.id.volume_up_check_box);
         mCheckDown = (CheckBox) root.findViewById(R.id.volume_down_check_box);
         mCheckRec = (CheckBox) root.findViewById(R.id.record_check_box);
         mCheckBack = (CheckBox) root.findViewById(R.id.back_check_box);
-        mCheckHome = (CheckBox) root.findViewById(R.id.home_check_box);
-        mCheckPower = (CheckBox) root.findViewById(R.id.power_check_box);
         mCheckUp.setOnCheckedChangeListener(this);
         mCheckDown.setOnCheckedChangeListener(this);
         mCheckRec.setOnCheckedChangeListener(this);
         mCheckBack.setOnCheckedChangeListener(this);
-        mCheckHome.setOnCheckedChangeListener(this);
-        mCheckPower.setOnCheckedChangeListener(this);
         checkResult();
 
     }
@@ -100,10 +100,6 @@ public class ButtonsFragment extends Fragment implements CompoundButton.OnChecke
         mCheckRec.setChecked(checked);
         checked = Constant.FAILED.equals(Result.get(Constant.BUTTON_REC)) ? true : false;
         mCheckBack.setChecked(checked);
-        checked = Constant.FAILED.equals(Result.get(Constant.BUTTON_HOME)) ? true : false;
-        mCheckHome.setChecked(checked);
-        checked = Constant.FAILED.equals(Result.get(Constant.BUTTON_POWER)) ? true : false;
-        mCheckPower.setChecked(checked);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -146,12 +142,6 @@ public class ButtonsFragment extends Fragment implements CompoundButton.OnChecke
                 case R.id.back_check_box:
                     Result.failed(Constant.BUTTON_BACK);
                     break;
-                case R.id.home_check_box:
-                    Result.failed(Constant.BUTTON_HOME);
-                    break;
-                case R.id.power_check_box:
-                    Result.failed(Constant.BUTTON_POWER);
-                    break;
             }
         } else {
             switch (buttonView.getId()) {
@@ -167,14 +157,38 @@ public class ButtonsFragment extends Fragment implements CompoundButton.OnChecke
                 case R.id.back_check_box:
                     Result.passed(Constant.BUTTON_BACK);
                     break;
-                case R.id.home_check_box:
-                    Result.passed(Constant.BUTTON_HOME);
-                    break;
-                case R.id.power_check_box:
-                    Result.passed(Constant.BUTTON_POWER);
-                    break;
             }
         }
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_VOLUME_UP:
+                mButtons.setImageResource(R.drawable.button_vol_up);
+                return true;
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                mButtons.setImageResource(R.drawable.button_vol_down);
+                return true;
+            case KeyEvent.KEYCODE_D:
+                mButtons.setImageResource(R.drawable.button_rec);
+                return true;
+            case KeyEvent.KEYCODE_BACK:
+                mButtons.setImageResource(R.drawable.button_back);
+                return true;
+        }
+        return false;
+    }
+
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_VOLUME_UP:
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+            case KeyEvent.KEYCODE_D:
+            case KeyEvent.KEYCODE_BACK:
+                mButtons.setImageResource(R.drawable.buttons_background);
+                return true;
+        }
+        return false;
     }
 
     /**

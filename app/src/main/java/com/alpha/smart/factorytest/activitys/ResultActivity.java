@@ -29,8 +29,6 @@ public class ResultActivity extends Activity {
             new ResultBean(Constant.BUTTON_VOL_DOWN, TYPE_ITEM, R.string.vol_down, true),
             new ResultBean(Constant.BUTTON_REC, TYPE_ITEM, R.string.rec, true),
             new ResultBean(Constant.BUTTON_BACK, TYPE_ITEM, R.string.back, true),
-            new ResultBean(Constant.BUTTON_HOME, TYPE_ITEM, R.string.home, true),
-            new ResultBean(Constant.BUTTON_POWER, TYPE_ITEM, R.string.standby, true),
             new ResultBean(null, TYPE_TITLE, R.string.list_lightness, true),
             new ResultBean(Constant.LIGHTNESS, TYPE_ITEM, R.string.lightness, true),
             new ResultBean(null, TYPE_TITLE, R.string.list_touch, true),

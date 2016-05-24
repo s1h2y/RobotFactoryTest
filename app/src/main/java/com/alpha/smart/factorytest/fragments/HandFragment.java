@@ -151,14 +151,15 @@ public class HandFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public void onKeyDown(int keyCode, KeyEvent event) {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_H:
                 mCheckLeft.setEnabled(false);
-                break;
+                return true;
             case KeyEvent.KEYCODE_J:
                 mCheckRight.setEnabled(false);
-                break;
+                return true;
         }
+        return false;
     }
 }
