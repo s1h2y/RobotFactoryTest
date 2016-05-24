@@ -147,6 +147,7 @@ public class TestActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (mItems.isEmpty()) {
+                    Result.saveResult(mContext);
                     finish();
                 } else {
                     showDialog();

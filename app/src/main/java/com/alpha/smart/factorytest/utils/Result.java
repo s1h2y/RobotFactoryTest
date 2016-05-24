@@ -79,7 +79,12 @@ public class Result {
 
     private static String getFileName() {
         String path = null;
-        String dir = Environment.getExternalStorageDirectory().getAbsolutePath();
+        String dir = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + Constant.testdir;
+        File f = new File(dir);
+        if (!f.exists()) {
+            MyLog.d("dir " + dir + " not exits, create");
+            f.mkdirs();
+        }
         path = dir + "/" + getTime() + ".txt";
         checkFile(path);
         return path;

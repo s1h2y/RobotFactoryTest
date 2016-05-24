@@ -130,5 +130,6 @@ public class Constant {
 
     public static final String VAD_SEARCH = "search";
     public static final String VAD_INPUT = "input";
+    public static final String testdir = ".factorytest";
     //baidu speech end
 }
