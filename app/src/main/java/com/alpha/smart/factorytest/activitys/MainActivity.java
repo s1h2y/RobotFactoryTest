@@ -78,6 +78,7 @@ public class MainActivity extends Activity {
                 showPowerDialog();
             }
         });
+        mPower.setVisibility(View.INVISIBLE);
     }
 
     private void showPowerDialog() {
