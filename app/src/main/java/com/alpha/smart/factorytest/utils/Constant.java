@@ -50,7 +50,7 @@ public class Constant {
             new FragmentBean(R.drawable.list_hand, R.drawable.hand_grey, R.string.list_hand, "hand", HandFragment.class.getName()),
             new FragmentBean(R.drawable.list_gsensor, R.drawable.gsensor_grey, R.string.list_gsensor, "gsensor", GsensorFragment.class.getName()),
             new FragmentBean(R.drawable.list_rtc, R.drawable.rtc_grey, R.string.list_rtc, "RTC", RTCFragment.class.getName()),
-            new FragmentBean(R.drawable.list_ddr, R.drawable.ddr_grey, R.string.list_ddr, "DDR", DDRFragment.class.getName()),
+//            new FragmentBean(R.drawable.list_ddr, R.drawable.ddr_grey, R.string.list_ddr, "DDR", DDRFragment.class.getName()),
             new FragmentBean(R.drawable.list_storage, R.drawable.storage_grey, R.string.list_storage, "storage", StorageFragment.class.getName()),
             new FragmentBean(R.drawable.list_monitor, R.drawable.monitor_grey, R.string.list_monitor_light, "monitor light", MonitorFragment.class.getName()),
             new FragmentBean(R.drawable.list_mic, R.drawable.mic_grey, R.string.list_speech_recognize, "speech recognize", SpeechFragment.class.getName()),
