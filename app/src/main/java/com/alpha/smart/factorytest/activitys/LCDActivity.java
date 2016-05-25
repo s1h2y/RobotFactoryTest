@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.MotionEvent;
 
 import com.alpha.smart.factorytest.R;
 
@@ -19,23 +20,36 @@ public class LCDActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lcd);
-        mHandler.sendEmptyMessage(0);
+        switchImage();
+//        mHandler.sendEmptyMessage(0);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            switchImage();
+        }
+        return super.onTouchEvent(event);
     }
 
     void switchImage() {
-        this.getWindow().setBackgroundDrawable(new ColorDrawable(mColors[index++]));
+        if (index < mColors.length) {
+            getWindow().setBackgroundDrawable(new ColorDrawable(mColors[index++]));
+        } else {
+            finish();
+        }
     }
 
-    Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            if (index < mColors.length) {
-                switchImage();
-                sendEmptyMessageDelayed(2, SECOND_3);
-            } else {
-                finish();
-            }
-        }
-    };
+//    Handler mHandler = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            super.handleMessage(msg);
+//            if (index < mColors.length) {
+//                switchImage();
+//                sendEmptyMessageDelayed(2, SECOND_3);
+//            } else {
+//                finish();
+//            }
+//        }
+//    };
 }
