@@ -30,7 +30,7 @@ public class Result {
     private static HashMap<String, String> mResMap = new HashMap<>();
 
     public static void passed(String key) {
-        mResMap.put(key, Constant.PASSED);
+        mResMap.remove(key);
     }
 
     public static void failed(String key) {
@@ -189,7 +189,7 @@ public class Result {
                 }
             }
         }
-        return false;
+        return true;
     }
 
     public static boolean isChecked(Context ctx) {
