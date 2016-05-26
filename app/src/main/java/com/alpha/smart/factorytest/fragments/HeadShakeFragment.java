@@ -94,7 +94,6 @@ public class HeadShakeFragment extends Fragment {
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlphaSDK.getInstance().headReset();
                 AlphaSDK.getInstance().headNod(null);
             }
         });
