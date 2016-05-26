@@ -1,118 +1,124 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:toggle="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
-    tools:context="com.alpha.smart.factorytest.fragments.WifiFragment">
+    android:layout_marginBottom="3dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/wifi_detail"
-        android:textColor="@color/text_c"
-        android:textSize="@dimen/text_c" />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/list_radius_corner_background">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        tools:context="com.alpha.smart.factorytest.fragments.WifiFragment">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="21dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/wifi"
-            android:textColor="@color/text_b"
-            android:textSize="@dimen/text_b" />
+            android:layout_marginTop="15dp"
+            android:text="@string/wifi_detail"
+            android:textColor="@color/text_c"
+            android:textSize="@dimen/text_c" />
 
-        <com.zcw.togglebutton.ToggleButton
-            android:id="@+id/switch_button"
-            android:layout_width="54dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="9dp"
-            android:layout_marginTop="10dp"
-            toggle:isDefaultOn="true" />
-
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/wifi_fail"
-        android:textColor="@color/text_c"
-        android:textSize="@dimen/text_c" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/list_radius_corner_background"
-        android:orientation="horizontal">
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <CheckBox
-                android:id="@+id/check_no_network"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="21dp" />
+            android:layout_marginTop="10dp"
+            android:background="@drawable/list_radius_corner_background">
 
             <TextView
-                style="@style/Widget.MyCheckBox.TextView"
-                android:text="@string/search_wifi_fail" />
-        </LinearLayout>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/wifi"
+                android:textColor="@color/text_b"
+                android:textSize="@dimen/text_b" />
 
-        <LinearLayout
+            <com.zcw.togglebutton.ToggleButton
+                android:id="@+id/switch_button"
+                android:layout_width="54dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="9dp"
+                android:layout_marginTop="10dp"
+                toggle:isDefaultOn="true" />
+
+        </RelativeLayout>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:text="@string/wifi_fail"
+            android:textColor="@color/text_c"
+            android:textSize="@dimen/text_c" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/list_radius_corner_background"
             android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/check_connect_fail"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <TextView
-                style="@style/Widget.MyCheckBox.TextView"
-                android:text="@string/connect_wifi_fail" />
+                <CheckBox
+                    android:id="@+id/check_no_network"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="21dp" />
+
+                <TextView
+                    style="@style/Widget.MyCheckBox.TextView"
+                    android:text="@string/search_wifi_fail" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/check_connect_fail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp" />
+
+                <TextView
+                    style="@style/Widget.MyCheckBox.TextView"
+                    android:text="@string/connect_wifi_fail" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="@string/choose_net"
+            android:textColor="@color/text_c"
+            android:textSize="@dimen/text_c" />
+
+
+        <com.alpha.smart.factorytest.widgets.WifiList
+            android:id="@+id/wifi_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/list_radius_corner_background"></com.alpha.smart.factorytest.widgets.WifiList>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tips"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:text="@string/choose_net"
-        android:textColor="@color/text_c"
-        android:textSize="@dimen/text_c" />
-
-
-    <ListView
-        android:id="@+id/wifi_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
-        android:layout_marginTop="9dp"
-        android:background="@drawable/list_radius_corner_background"></ListView>
-
-</LinearLayout>
+</ScrollView>

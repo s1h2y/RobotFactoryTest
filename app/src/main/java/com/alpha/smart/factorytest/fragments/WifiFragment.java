@@ -23,6 +23,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.alpha.smart.factorytest.utils.MyLog;
+import com.alpha.smart.factorytest.widgets.WifiList;
 import com.zcw.togglebutton.ToggleButton;
 
 import com.alpha.smart.factorytest.R;
@@ -56,7 +59,7 @@ public class WifiFragment extends Fragment {
     private Context mContext;
     private WifiUtils mWifiUtils;
     private ToggleButton mSwitch;
-    private ListView mWifiList;
+    private WifiList mWifiList;
     private List<WifiBean> mList = new ArrayList<WifiBean>();
     private WifiAdapter mAdapter;
     private TextView mTips;
@@ -175,12 +178,19 @@ public class WifiFragment extends Fragment {
     private void initView(View root) {
         mTips = (TextView) root.findViewById(R.id.tips);
         mSwitch = (ToggleButton) root.findViewById(R.id.switch_button);
-        mWifiList = (ListView) root.findViewById(R.id.wifi_list);
+        mWifiList = (WifiList) root.findViewById(R.id.wifi_list);
         mAdapter = new WifiAdapter(LayoutInflater.from(mContext));
         mWifiList.setAdapter(mAdapter);
-        mWifiList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//        mWifiList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                mTips.setText(getString(R.string.connecting) + mList.get(position).ssid);
+//                mWifiUtils.connectWifi(mList.get(position));
+//            }
+//        });
+        mWifiList.setOnItemClickListener(new WifiList.MyOnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(ViewGroup parent, View view, int position, Object o) {
                 mTips.setText(getString(R.string.connecting) + mList.get(position).ssid);
                 mWifiUtils.connectWifi(mList.get(position));
             }
@@ -204,16 +214,21 @@ public class WifiFragment extends Fragment {
             @Override
             public void onToggle(boolean on) {
                 if (on) {
+                    MyLog.d("mSwitch on");
                     mWifiUtils.openWifi();
                     mWifiUtils.startScan();
                 } else {
+                    MyLog.d("mSwitch off");
                     mWifiUtils.closeWifi();
                     mList.clear();
                     mTips.setText(R.string.choose_net);
-                    mAdapter.notifyDataSetChanged();
+//                    mAdapter.notifyDataSetChanged();
+                    mWifiList.notifyChange();
                 }
             }
         });
+        MyLog.d("shy default set mSwitch on");
+        mSwitch.toggleOn();
         mCheckSearch = (CheckBox) root.findViewById(R.id.check_no_network);
         mCheckConnect = (CheckBox) root.findViewById(R.id.check_connect_fail);
         mCheckSearch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -293,7 +308,8 @@ public class WifiFragment extends Fragment {
             String action = intent.getAction();
             if (action.equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)) {
                 mList = mWifiUtils.getWifiInfo();
-                mAdapter.notifyDataSetChanged();
+//                mAdapter.notifyDataSetChanged();
+                mWifiList.notifyChange();
             }
 
             if (action.equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
