@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.alpha.smart.factorytest.R;
 import com.alpha.smart.factorytest.utils.Constant;
+import com.alpha.smart.factorytest.utils.MyLog;
 import com.alpha.smart.factorytest.utils.Result;
 
 /**
@@ -25,7 +26,7 @@ import com.alpha.smart.factorytest.utils.Result;
  * Use the {@link SpeakerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletionListener {
+public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -43,6 +44,7 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
     private Button mButton;
     private MediaPlayer mPlayer;
     private Context mContext;
+    private boolean play1khz = false;
 
     public SpeakerFragment() {
         // Required empty public constructor
@@ -143,10 +145,19 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
 
     private void playMusic() {
         mNote.setText(R.string.sound_playing);
-        mPlayer = MediaPlayer.create(mContext, R.raw.music);
+        int musicId = R.raw.music;
+        if (play1khz) {
+            musicId = R.raw.test1khz;
+            play1khz = false;
+        } else {
+            musicId = R.raw.music;
+            play1khz = true;
+        }
+        mPlayer = MediaPlayer.create(mContext, musicId);
         mPlayer.setLooping(false);
         mPlayer.start();
         mPlayer.setOnCompletionListener(this);
+        mPlayer.setOnErrorListener(this);
     }
 
     @Override
@@ -154,6 +165,18 @@ public class SpeakerFragment extends Fragment implements MediaPlayer.OnCompletio
         mNote.setText(R.string.ready_play);
         mPlayer.release();
         mPlayer = null;
+    }
+
+    @Override
+    public boolean onError(MediaPlayer mp, int what, int extra) {
+        MyLog.e("error in speaker reason (" + what + ", " + extra + ")");
+        mNote.setText(R.string.ready_play);
+        if (null != mPlayer) {
+            mPlayer.stop();
+            mPlayer.release();
+            mPlayer = null;
+        }
+        return false;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

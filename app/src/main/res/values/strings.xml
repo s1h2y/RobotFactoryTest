@@ -72,7 +72,7 @@
     <string name="touch_fail">draw line fail</string>
 
     <!-- speaker -->
-    <string name="speaker_detail">click to test sound.\ncheck bad item.</string>
+    <string name="speaker_detail">click to test 10s sound.\ncheck bad item.</string>
     <string name="ready_play">ready to play...</string>
     <string name="sound_playing">sound playing...</string>
     <string name="sound_play_done">sound play done</string>
@@ -82,7 +82,7 @@
     <string name="play_sound">play sound</string>
 
     <!-- mic -->
-    <string name="mic_detail">touch start record.\n check if record fail.</string>
+    <string name="mic_detail">touch start 5s record.\n check if record fail.</string>
     <string name="ready_rec">ready record...</string>
     <string name="recording">recording...</string>
     <string name="play_record">playing record...</string>

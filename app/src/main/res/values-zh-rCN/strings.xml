@@ -73,7 +73,7 @@
     <string name="touch_fail">屏幕无法连续画直线</string>
 
     <!-- speaker -->
-    <string name="speaker_detail">点击播放音频您会听到一段音频。\n如有对应问题，请打勾。</string>
+    <string name="speaker_detail">点击播放音频您会听到一段10秒音频。\n如有对应问题，请打勾。</string>
     <string name="ready_play">准备播放音频……</string>
     <string name="sound_playing">正在播放音频……</string>
     <string name="sound_play_done">播放音频完毕</string>
@@ -83,7 +83,7 @@
     <string name="play_sound">播放音频</string>
 
     <!-- mic -->
-    <string name="mic_detail">轻触开始录音进入录音测试。\n如无法录音，请打勾。</string>
+    <string name="mic_detail">轻触开始录音进入5秒录音测试。\n如无法录音，请打勾。</string>
     <string name="ready_rec">准备录音……</string>
     <string name="recording">正在录音……</string>
     <string name="play_record">正在播放录音……</string>
