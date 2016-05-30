@@ -88,9 +88,9 @@ public class ActivityTouch extends Activity implements RecognitionListener {
                 return false;
             }
         });
-        btn.setEnabled(false);
-        btn.setText(R.string.wait_copy);
-        mHandler.sendEmptyMessage(0);
+//        btn.setEnabled(false);
+//        btn.setText(R.string.wait_copy);
+//        mHandler.sendEmptyMessage(0);
     }
 
     private Handler mHandler = new Handler() {
@@ -99,19 +99,19 @@ public class ActivityTouch extends Activity implements RecognitionListener {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            if (createDir("/sdcard/easr")) {
-                                assetsToPath(mContext, "temp_license_2016-05-23", "/sdcard/easr/temp_license_2016-05-23");
-                                assetsToPath(mContext, "s_1", "/sdcard/easr/s_1");
-                                assetsToPath(mContext, "s_2_InputMethod", "/sdcard/easr/s_2_InputMethod");
-                                sendEmptyMessage(1);
-                            } else {
-                                sendEmptyMessage(2);
-                            }
-                        }
-                    }.start();
+//                    new Thread() {
+//                        @Override
+//                        public void run() {
+//                            if (createDir("/sdcard/easr")) {
+//                                assetsToPath(mContext, "temp_license_2016-05-23", "/sdcard/easr/temp_license_2016-05-23");
+//                                assetsToPath(mContext, "s_1", "/sdcard/easr/s_1");
+//                                assetsToPath(mContext, "s_2_InputMethod", "/sdcard/easr/s_2_InputMethod");
+//                                sendEmptyMessage(1);
+//                            } else {
+//                                sendEmptyMessage(2);
+//                            }
+//                        }
+//                    }.start();
                     break;
                 case 1:
                     btn.setText("按住识别");
@@ -214,12 +214,12 @@ public class ActivityTouch extends Activity implements RecognitionListener {
 //        }
         // offline asr
         {
-            intent.putExtra(Constant.EXTRA_OFFLINE_ASR_BASE_FILE_PATH, "/sdcard/easr/s_1");
-            intent.putExtra(Constant.EXTRA_LICENSE_FILE_PATH, "/sdcard/easr/temp_license_2016-05-23");
-            intent.putExtra(Constant.EXTRA_OFFLINE_LM_RES_FILE_PATH, "/sdcard/easr/s_2_InputMethod");
-            intent.putExtra("sample", 16000); // 离线仅支持16000采样率
-            intent.putExtra("language", "cmn-Hans-CN"); // 离线仅支持中文普通话
-            intent.putExtra("prop", 20000); // 输入
+//            intent.putExtra(Constant.EXTRA_OFFLINE_ASR_BASE_FILE_PATH, "/sdcard/easr/s_1");
+//            intent.putExtra(Constant.EXTRA_LICENSE_FILE_PATH, "/sdcard/easr/temp_license_2016-05-23");
+//            intent.putExtra(Constant.EXTRA_OFFLINE_LM_RES_FILE_PATH, "/sdcard/easr/s_2_InputMethod");
+//            intent.putExtra("sample", 16000); // 离线仅支持16000采样率
+//            intent.putExtra("language", "cmn-Hans-CN"); // 离线仅支持中文普通话
+//            intent.putExtra("prop", 20000); // 输入
         }
     }
 
