@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.alpha.smart.factorytest.activitys.TestActivity">
+    tools:context="cn.alpha.intell.factory.check.activitys.TestActivity">
 
     <RelativeLayout
         android:id="@+id/test_top"

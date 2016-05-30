@@ -6,7 +6,7 @@
     android:layout_margin="0dp"
     android:orientation="vertical"
     android:padding="0dp"
-    tools:context="com.alpha.smart.factorytest.activitys.MainActivity">
+    tools:context="cn.alpha.intell.factory.check.activitys.MainActivity">
 
     <RelativeLayout
         android:id="@+id/main_top"

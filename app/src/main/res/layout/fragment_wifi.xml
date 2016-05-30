@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        tools:context="com.alpha.smart.factorytest.fragments.WifiFragment">
+        tools:context="cn.alpha.intell.factory.check.fragments.WifiFragment">
 
         <TextView
             android:layout_width="wrap_content"
@@ -112,13 +112,13 @@
             android:textSize="@dimen/text_c" />
 
 
-        <com.alpha.smart.factorytest.widgets.WifiList
+        <cn.alpha.intell.factory.check.widgets.WifiList
             android:id="@+id/wifi_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
             android:layout_marginTop="9dp"
-            android:background="@drawable/list_radius_corner_background"></com.alpha.smart.factorytest.widgets.WifiList>
+            android:background="@drawable/list_radius_corner_background"></cn.alpha.intell.factory.check.widgets.WifiList>
 
     </LinearLayout>
 </ScrollView>
