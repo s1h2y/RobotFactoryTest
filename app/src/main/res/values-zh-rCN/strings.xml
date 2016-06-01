@@ -223,4 +223,7 @@
     <string name="speech">语音识别</string>
 
     <string name="wait_copy">等待复制文件</string>
+    <string name="commit">提交</string>
+    <string name="uploading">上传中</string>
+    <string name="wait">请稍等……</string>
 </resources>

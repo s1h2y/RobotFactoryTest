@@ -33,5 +33,6 @@ dependencies {
     compile files('libs/VoiceRecognition-2.0.1.jar')
     compile files('libs/zxing.jar')
     compile project(':ToggleButtonLib')
-//    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile files('libs/gson-1.7.1.jar')
 }

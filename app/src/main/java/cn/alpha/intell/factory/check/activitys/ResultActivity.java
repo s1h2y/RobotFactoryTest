@@ -1,21 +1,34 @@
 package cn.alpha.intell.factory.check.activitys;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.File;
 
 import cn.alpha.intell.factory.check.R;
 import cn.alpha.intell.factory.check.beans.ResultBean;
 import cn.alpha.intell.factory.check.utils.Constant;
+import cn.alpha.intell.factory.check.utils.MyLog;
 import cn.alpha.intell.factory.check.utils.Result;
+import cn.alpha.intell.factory.check.utils.UploadFile;
+import cn.alpha.intell.factory.check.utils.UploadPolicy;
 
 public class ResultActivity extends Activity {
 
@@ -74,6 +87,9 @@ public class ResultActivity extends Activity {
     private Context mContext;
     private MyAdapter myAdapter;
     private TextView mResText;
+    private Button mBtn;
+    private ProgressDialog mDialog;
+    private UploadFile mUpload;
 
 
     @Override
@@ -84,7 +100,17 @@ public class ResultActivity extends Activity {
         prepareData();
         ListView list = (ListView) findViewById(R.id.list);
         list.setAdapter(myAdapter = new MyAdapter());
-        mResText = (TextView)findViewById(R.id.result);
+        mBtn = (Button) findViewById(R.id.commit);
+        mBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDialog = ProgressDialog.show(mContext, getString(R.string.uploading),
+                        getString(R.string.wait), true);
+                mUpload = new UploadFile();
+                mUpload.commitResult(new File(getFileName()), mHandler);
+            }
+        });
+        mResText = (TextView) findViewById(R.id.result);
     }
 
     @Override
@@ -92,6 +118,37 @@ public class ResultActivity extends Activity {
         super.onResume();
         checkResult();
     }
+
+    private String getFileName() {
+        SharedPreferences sp = mContext.getSharedPreferences("test", Context.MODE_PRIVATE);
+        String path = sp.getString(Constant.TEST_FILE, "");
+        path = Environment.getExternalStorageDirectory().getPath() + "/liming.jpg";
+        MyLog.d("file = " + path);
+        return path;
+    }
+
+    public Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            String txt = "上传成功";
+            switch (msg.what) {
+                case 0:
+                    txt = "上传失败，请重新上传";
+                    break;
+                case 1:
+                    txt = "上传成功";
+                    break;
+                default:
+                    break;
+            }
+            if (null != mDialog) {
+                mDialog.dismiss();
+            }
+            Toast.makeText(mContext, txt, Toast.LENGTH_LONG).show();
+            mUpload = null;
+        }
+    };
 
     private void prepareData() {
         for (int i = 0; i < mRes.length; i++) {

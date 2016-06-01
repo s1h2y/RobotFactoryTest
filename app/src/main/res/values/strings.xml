@@ -222,5 +222,8 @@
     <string name="speech">speech recognize</string>
 
     <string name="wait_copy">wait for copy</string>
+    <string name="commit">commit</string>
+    <string name="uploading">uploading</string>
+    <string name="wait">please wait...</string>
 
 </resources>
