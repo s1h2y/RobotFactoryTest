@@ -101,6 +101,7 @@ public class ResultActivity extends Activity {
         ListView list = (ListView) findViewById(R.id.list);
         list.setAdapter(myAdapter = new MyAdapter());
         mBtn = (Button) findViewById(R.id.commit);
+        mBtn.setVisibility(View.INVISIBLE);
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

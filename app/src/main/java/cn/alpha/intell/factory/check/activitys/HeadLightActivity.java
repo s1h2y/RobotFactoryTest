@@ -60,4 +60,14 @@ public class HeadLightActivity extends Activity {
             }
         }
     };
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (null != mHandler) {
+            mHandler.removeMessages(2);
+            mHandler = null;
+            AlphaSDK.getInstance().ledControl(MessageUtils.LEDTYPE_OFF);
+        }
+    }
 }
