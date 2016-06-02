@@ -2,9 +2,12 @@ package cn.alpha.intell.factory.check.utils;
 
 import android.os.Handler;
 
+import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.LogInterface;
 import com.loopj.android.http.RequestParams;
 
 import java.io.File;
@@ -15,6 +18,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -28,9 +33,8 @@ public class UploadFile {
     private UploadPolicy mPolicy;
     private Handler mHandler;
     private File mFile;
-    private String mOssUrl = "http://alpha-robot-staging.oss-cn-hangzhou.aliyuncs.com";
 
-    private String mPhone = "18925362806";
+    private String mPhone = "18854332800";
     private String mPwd = "123456";
 
     public void commitResult(File file, Handler handler) {
@@ -55,8 +59,9 @@ public class UploadFile {
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 Token t = new Gson().fromJson(new String(responseBody), Token.class);
                 mToken = t.token;
-                MyLog.d("get token " + mToken);
+                MyLog.d("get token = " + mToken);
                 getUploadParam();
+//                getUrl();
             }
 
             @Override
@@ -93,7 +98,8 @@ public class UploadFile {
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 mPolicy = new Gson().fromJson(new String(responseBody), UploadPolicy.class);
                 MyLog.d("get policy " + mPolicy.toString());
-                uploadFile();
+//                uploadFile();
+                httpurlUpload();
             }
 
             @Override
@@ -104,37 +110,53 @@ public class UploadFile {
         });
     }
 
+
+    private void httpurlUpload() {
+        changeFile();
+        Map<String, String> payload = new HashMap<String, String>();
+        payload.put("policy", mPolicy.policy);
+        payload.put("key", mPolicy.dir + mPolicy.filename + ".txt");
+        payload.put("OSSAccessKeyId", mPolicy.accessid);
+        payload.put("success_action_status", "200");
+        payload.put("callback", mPolicy.callback);
+        payload.put("signature", mPolicy.signature);
+        payload.put("name", mPolicy.filename + ".txt");
+        payload.put("file", mFile.getPath());
+        payload.put("type", "text/plain");
+        try {
+            new MHttpPost().postMultiData(mHandler, mPolicy.host, mFile, payload);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void uploadFile() {
         AsyncHttpClient client = new AsyncHttpClient();
         client.addHeader("Connection", "keep-alive");
-        client.addHeader("Content-Type", "multipart/form-data");
+//        client.addHeader("Content-Type", "multipart/form-data");
+
         RequestParams params = new RequestParams();
-        params.setForceMultipartEntityContentType(true);
-        String path = mFile.getPath();
-        MyLog.d("origin path= " + path);
-        MyLog.d(path.substring(0, path.lastIndexOf("/")));
-        path = path.substring(0, path.lastIndexOf("/")) + "/" + mPolicy.filename + ".jpg";
-        copy(mFile, new File(path));
-        mFile = new File(path);
-        MyLog.d("new file " + mFile.getPath());
+
+        changeFile();
+
+        params.put("OSSAccessKeyId", mPolicy.accessid);
+        params.put("signature", mPolicy.signature);
+        params.put("success_action_status", "200");
+        params.put("name", mPolicy.filename + ".jpg");
+        params.put("callback", mPolicy.callback);
+        params.put("key", mPolicy.dir + mPolicy.filename + ".jpg");
+        params.put("policy", mPolicy.policy);
         try {
             params.put("file", mFile, "image/jpeg", mPolicy.filename + ".jpg");
-            params.put("policy", mPolicy.policy);
-            params.put("key", mPolicy.dir + mPolicy.filename + ".jpg");
-            params.put("OSSAccessKeyId", mPolicy.accessid);
-            params.put("success_action_status", "200");
-            params.put("callback", mPolicy.callback);
-            params.put("signature", mPolicy.signature);
-            params.put("name", mPolicy.filename + ".jpg");
-            params.setForceMultipartEntityContentType(true);
-//            params.setAutoCloseInputStreams(true);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             if (null != mHandler) {
                 mHandler.sendEmptyMessage(0);
             }
         }
-//        mPolicy.host = mOssUrl;//test,cause host return null
+        params.setForceMultipartEntityContentType(false);
+
+        MyLog.d("66666666    " + params.toString());
         client.post(mPolicy.host, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -152,6 +174,16 @@ public class UploadFile {
                 onError(statusCode, responseBody);
             }
         });
+    }
+
+    private void changeFile() {
+        String path = mFile.getPath();
+        MyLog.d("origin path= " + path);
+        MyLog.d(path.substring(0, path.lastIndexOf("/")));
+        path = path.substring(0, path.lastIndexOf("/")) + "/" + mPolicy.filename + ".txt";
+        copy(mFile, new File(path));
+        mFile = new File(path);
+        MyLog.d("new file " + mFile.getPath());
     }
 
     public static void copy(File source, File target) {

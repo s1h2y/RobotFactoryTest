@@ -101,7 +101,7 @@ public class ResultActivity extends Activity {
         ListView list = (ListView) findViewById(R.id.list);
         list.setAdapter(myAdapter = new MyAdapter());
         mBtn = (Button) findViewById(R.id.commit);
-        mBtn.setVisibility(View.INVISIBLE);
+//        mBtn.setVisibility(View.INVISIBLE);
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,7 +123,7 @@ public class ResultActivity extends Activity {
     private String getFileName() {
         SharedPreferences sp = mContext.getSharedPreferences("test", Context.MODE_PRIVATE);
         String path = sp.getString(Constant.TEST_FILE, "");
-        path = Environment.getExternalStorageDirectory().getPath() + "/liming.jpg";
+//        path = Environment.getExternalStorageDirectory().getPath() + "/liming.jpg";
         MyLog.d("file = " + path);
         return path;
     }
