@@ -58,7 +58,6 @@ public class UploadFile {
                 mToken = t.token;
                 MyLog.d("get token = " + mToken);
                 getUploadParam();
-//                getUrl();
             }
 
             @Override
@@ -193,9 +192,9 @@ public class UploadFile {
             }
         } else {
             try {
-                InputStream is = new FileInputStream(source); // 用于读取文件的原始字节流
-                OutputStream os = new FileOutputStream(tarpath); // 用于写入文件的原始字节的流
-                byte[] buf = new byte[1024];// 存储读取数据的缓冲区大小
+                InputStream is = new FileInputStream(source);
+                OutputStream os = new FileOutputStream(tarpath);
+                byte[] buf = new byte[1024];
                 int len = 0;
                 while ((len = is.read(buf)) != -1) {
                     os.write(buf, 0, len);
