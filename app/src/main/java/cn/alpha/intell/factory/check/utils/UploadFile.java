@@ -2,12 +2,9 @@ package cn.alpha.intell.factory.check.utils;
 
 import android.os.Handler;
 
-import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.LogInterface;
 import com.loopj.android.http.RequestParams;
 
 import java.io.File;
