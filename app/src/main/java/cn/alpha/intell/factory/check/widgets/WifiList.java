@@ -3,12 +3,14 @@ package cn.alpha.intell.factory.check.widgets;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import cn.alpha.intell.factory.check.R;
 import cn.alpha.intell.factory.check.utils.MyLog;
 
 /**
@@ -40,7 +42,7 @@ public class WifiList extends LinearLayout {
     public void notifyChange() {
         removeAllViews();
         int count = mAdapter.getCount();
-        MyLog.d("shy get wifi count=" +  count);
+        MyLog.d("shy get wifi count=" + count);
         LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,
                 LayoutParams.WRAP_CONTENT);
         for (int i = 0; i < mAdapter.getCount(); i++) {
@@ -56,6 +58,18 @@ public class WifiList extends LinearLayout {
                         onItemClickListener.onItemClick(WifiList.this,
                                 layout, index, mAdapter.getItem(index));
                     }
+                }
+            });
+            v.setOnTouchListener(new OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (MotionEvent.ACTION_DOWN == event.getAction()
+                            || MotionEvent.ACTION_MOVE == event.getAction()) {
+                        v.setBackgroundColor(Color.YELLOW);
+                    } else {
+                        v.setBackgroundColor(getResources().getColor(R.color.list_background_grey));
+                    }
+                    return false;
                 }
             });
             layout.addView(v);
