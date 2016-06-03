@@ -12,6 +12,6 @@
         android:layout_centerInParent="true"
         android:textColor="@color/headlight_origin"
         android:textSize="50sp"
-        android:text="@string/origin_color"/>
+        android:text="@string/green_color"/>
 
 </RelativeLayout>

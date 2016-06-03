@@ -14,8 +14,8 @@ import sdk.robot.intell.alpha.cn.alphasdk.service.AlphaSDK;
 
 
 public class HeadLightActivity extends Activity {
-    private final int mColors[] = {Color.parseColor("#4FA5F1"), Color.parseColor("#F97664"), Color.parseColor("#2CBA16")};
-    private final int mTexts[] = {R.string.origin_color, R.string.red_color, R.string.green_color};
+    private final int mColors[] = {Color.parseColor("#2CBA16"), Color.parseColor("#F97664"), Color.parseColor("#4FA5F1")};
+    private final int mTexts[] = {R.string.green_color, R.string.red_color, R.string.origin_color};
     private final int SECOND_3 = 3000;
     private int index = 0;
     private TextView mText;
@@ -35,13 +35,13 @@ public class HeadLightActivity extends Activity {
         mText.setTextColor(mColors[index]);
         switch(index) {
             case 0:
-                AlphaSDK.getInstance().headledControl(0x01);
+                AlphaSDK.getInstance().headledControl(0x02);
                 break;
             case 1:
                 AlphaSDK.getInstance().headledControl(0x00);
                 break;
             case 2:
-                AlphaSDK.getInstance().headledControl(0x02);
+                AlphaSDK.getInstance().headledControl(0x01);
                 break;
         }
         index++;
