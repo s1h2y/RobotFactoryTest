@@ -31,5 +31,6 @@
 
     <Button
         android:id="@+id/button"
-        style="@style/Widget.Button.StartTestLong" />
+        style="@style/Widget.Button.StartTestLong"
+        android:text="@string/turn_on_light" />
 </RelativeLayout>

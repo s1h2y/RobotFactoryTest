@@ -14,6 +14,7 @@ import android.widget.CompoundButton;
 import cn.alpha.intell.factory.check.R;
 import cn.alpha.intell.factory.check.utils.Constant;
 import cn.alpha.intell.factory.check.utils.Result;
+import sdk.robot.intell.alpha.cn.alphasdk.service.AlphaSDK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -92,7 +93,13 @@ public class MonitorFragment extends Fragment {
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (mBtn.getText().equals(getString(R.string.turn_on_light))) {
+                    AlphaSDK.getInstance().cameraLedControl(1);
+                    mBtn.setText(R.string.turn_off_light);
+                } else {
+                    AlphaSDK.getInstance().cameraLedControl(0);
+                    mBtn.setText(R.string.turn_on_light);
+                }
             }
         });
         checkResult();
@@ -125,6 +132,7 @@ public class MonitorFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        AlphaSDK.getInstance().cameraLedControl(0);
     }
 
     /**

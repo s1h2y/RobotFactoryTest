@@ -173,6 +173,8 @@
     <!-- monitor light -->
     <string name="monitor_detail">click to test monitor light.\ncheck if no light.</string>
     <string name="monitor_fail">monitor light fail</string>
+    <string name="turn_on_light">turn on</string>
+    <string name="turn_off_light">turn off</string>
 
     <!-- speech -->
     <string name="speech_detail">start to speech recognize\ncheck if recognized failed</string>
@@ -225,5 +227,6 @@
     <string name="commit">commit</string>
     <string name="uploading">uploading</string>
     <string name="wait">please wait...</string>
+
 
 </resources>

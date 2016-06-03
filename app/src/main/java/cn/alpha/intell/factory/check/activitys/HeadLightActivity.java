@@ -10,9 +10,8 @@ import android.os.Message;
 import android.widget.TextView;
 
 import cn.alpha.intell.factory.check.R;
+import sdk.robot.intell.alpha.cn.alphasdk.service.AlphaSDK;
 
-import sdk.robot.intell.alpha.cn.alphasdkbase.utils.MessageUtils;
-import sdk.robot.intell.alpha.cn.alphasdklibrary.service.AlphaSDK;
 
 public class HeadLightActivity extends Activity {
     private final int mColors[] = {Color.parseColor("#4FA5F1"), Color.parseColor("#F97664"), Color.parseColor("#2CBA16")};
@@ -25,6 +24,7 @@ public class HeadLightActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_head_light);
+        AlphaSDK.init(this);
         mText = (TextView) findViewById(R.id.tips);
         mHandler.sendEmptyMessage(0);
     }
@@ -35,13 +35,13 @@ public class HeadLightActivity extends Activity {
         mText.setTextColor(mColors[index]);
         switch(index) {
             case 0:
-                AlphaSDK.getInstance().ledControl(MessageUtils.LEDTYPE_BLUE_LIGHT);
+                AlphaSDK.getInstance().headledControl(0x01);
                 break;
             case 1:
-                AlphaSDK.getInstance().ledControl(MessageUtils.LEDTYPE_RED_BLINK);
+                AlphaSDK.getInstance().headledControl(0x00);
                 break;
             case 2:
-                AlphaSDK.getInstance().ledControl(MessageUtils.LEDTYPE_YELLOW_BLINK);
+                AlphaSDK.getInstance().headledControl(0x02);
                 break;
         }
         index++;
@@ -55,7 +55,7 @@ public class HeadLightActivity extends Activity {
                 switchLight();
                 sendEmptyMessageDelayed(2, SECOND_3);
             } else {
-                AlphaSDK.getInstance().ledControl(MessageUtils.LEDTYPE_OFF);
+                AlphaSDK.getInstance().headledControl(0xff);
                 finish();
             }
         }
@@ -67,7 +67,13 @@ public class HeadLightActivity extends Activity {
         if (null != mHandler) {
             mHandler.removeMessages(2);
             mHandler = null;
-            AlphaSDK.getInstance().ledControl(MessageUtils.LEDTYPE_OFF);
+            AlphaSDK.getInstance().headledControl(0xff);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AlphaSDK.release();
     }
 }

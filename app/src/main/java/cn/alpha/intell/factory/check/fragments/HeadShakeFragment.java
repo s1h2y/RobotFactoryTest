@@ -14,8 +14,8 @@ import android.widget.CompoundButton;
 import cn.alpha.intell.factory.check.R;
 import cn.alpha.intell.factory.check.utils.Constant;
 import cn.alpha.intell.factory.check.utils.Result;
+import sdk.robot.intell.alpha.cn.alphasdk.service.AlphaSDK;
 
-import sdk.robot.intell.alpha.cn.alphasdklibrary.service.AlphaSDK;
 
 /**
  * A simple {@link Fragment} subclass.

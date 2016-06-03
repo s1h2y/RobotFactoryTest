@@ -31,10 +31,10 @@ import cn.alpha.intell.factory.check.fragments.HandFragment;
 import cn.alpha.intell.factory.check.utils.Constant;
 import cn.alpha.intell.factory.check.utils.MyLog;
 import cn.alpha.intell.factory.check.utils.Result;
+import sdk.robot.intell.alpha.cn.alphasdk.service.AlphaSDK;
 
 import java.util.HashSet;
 
-import sdk.robot.intell.alpha.cn.alphasdklibrary.service.AlphaSDK;
 
 public class TestActivity extends Activity {
 
@@ -59,6 +59,12 @@ public class TestActivity extends Activity {
         }
         mFragManager = getFragmentManager();
         initView();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AlphaSDK.release();
     }
 
 
