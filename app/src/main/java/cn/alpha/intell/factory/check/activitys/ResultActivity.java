@@ -111,6 +111,7 @@ public class ResultActivity extends Activity {
                 mUpload.commitResult(new File(getFileName()), mHandler);
             }
         });
+        mBtn.setVisibility(View.INVISIBLE);
         mResText = (TextView) findViewById(R.id.result);
     }
 
