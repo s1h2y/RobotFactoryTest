@@ -7,13 +7,17 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.TextView;
 
 import cn.alpha.intell.factory.check.R;
+import sdk.robot.intell.alpha.cn.alphasdk.BuildConfig;
 import sdk.robot.intell.alpha.cn.alphasdk.service.AlphaSDK;
 
 
 public class HeadLightActivity extends Activity {
+
+    private static final String TAG = "HeadLightActivity" ;
     private final int mColors[] = {Color.parseColor("#2CBA16"), Color.parseColor("#F97664"), Color.parseColor("#4FA5F1")};
     private final int mTexts[] = {R.string.green_color, R.string.red_color, R.string.origin_color};
     private final int SECOND_3 = 3000;
@@ -35,13 +39,38 @@ public class HeadLightActivity extends Activity {
         mText.setTextColor(mColors[index]);
         switch(index) {
             case 0:
+
+
+                AlphaSDK.getInstance().headledControl(0xff);
                 AlphaSDK.getInstance().headledControl(0x02);
+
+                if(BuildConfig.DEBUG){
+
+                    Log.d(TAG,index +"======>"+ "0x02");
+
+                }
                 break;
             case 1:
+
+                AlphaSDK.getInstance().headledControl(0xff);
                 AlphaSDK.getInstance().headledControl(0x00);
+
+                if(BuildConfig.DEBUG) {
+
+                    Log.d(TAG, index + "======>" + "0x00");
+                }
+
                 break;
             case 2:
+
+                AlphaSDK.getInstance().headledControl(0xff);
                 AlphaSDK.getInstance().headledControl(0x01);
+
+                if(BuildConfig.DEBUG) {
+
+                    Log.d(TAG, index + "======>" + "0x01");
+                }
+
                 break;
         }
         index++;

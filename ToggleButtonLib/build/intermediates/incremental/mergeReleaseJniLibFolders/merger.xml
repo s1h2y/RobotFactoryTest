@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/shy/AndroidStudioProjects/FactoryTest/ToggleButtonLib/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/home/shy/AndroidStudioProjects/FactoryTest/ToggleButtonLib/src/release/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/jinlongfeng/GitProjects/rbt-自检app/ToggleButtonLib/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/Users/jinlongfeng/GitProjects/rbt-自检app/ToggleButtonLib/src/release/jniLibs"/></dataSet></merger>

@@ -1,2 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/jinlongfeng/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="/Users/jinlongfeng/GitProjects/rbt-自检app/app/build/intermediates/transforms/dex/release/folders/1000/10/android-async-http-1.4.9_1fed97791ed14cc0ef8742fdcbddd3206f6343d6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jinlongfeng/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="/Users/jinlongfeng/GitProjects/rbt-自检app/app/build/intermediates/transforms/dex/release/folders/1000/10/httpclient-4.3.6_d4ceef8835e68ccb05c8566e64979ee777aff9d4/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jinlongfeng/.gradle/caches/modules-2/files-2.1/com.facebook.rebound/rebound/0.3.8/c8b90640dddaf1e7ad75d7cb00b09a44b3788f7e/rebound-0.3.8.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c8b90640dddaf1e7ad75d7cb00b09a44b3788f7e">
+        <dex dex="/Users/jinlongfeng/GitProjects/rbt-自检app/app/build/intermediates/transforms/dex/release/folders/1000/10/rebound-0.3.8_9851677e29728c42dd5b790ed69ff50fa5c0f350/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jinlongfeng/GitProjects/rbt-自检app/app/libs/VoiceRecognition-2.0.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="20bdb075131eca514ca490bd4f32be1341620dc3">
+        <dex dex="/Users/jinlongfeng/GitProjects/rbt-自检app/app/build/intermediates/transforms/dex/release/folders/1000/2/VoiceRecognition-2.0.1_2a198ea75ea4d614a68daa3807b51be920c3a1ba/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jinlongfeng/GitProjects/rbt-自检app/app/build/intermediates/exploded-aar/rbt-自检app/ToggleButtonLib/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="d1b2f69b45a74d63511c1011fdc3375b54eede94">
+        <dex dex="/Users/jinlongfeng/GitProjects/rbt-自检app/app/build/intermediates/transforms/dex/release/folders/1000/4/rbt-自检app-ToggleButtonLib-unspecified_860f2c352bb320ccef9d90a6fc45f1c3044c96a2/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jinlongfeng/GitProjects/rbt-自检app/app/libs/zxing.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6fe22c135f19470d05b0816d5996c442ef67da3f">
+        <dex dex="/Users/jinlongfeng/GitProjects/rbt-自检app/app/build/intermediates/transforms/dex/release/folders/1000/2/zxing_3193a4b0cd3cbc97c96be45435afb9f33486ccb1/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jinlongfeng/GitProjects/rbt-自检app/app/build/intermediates/exploded-aar/rbt-自检app/alphasdk-release/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="616436cfef4fab313719cbb345473dc1cde3ff8f">
+        <dex dex="/Users/jinlongfeng/GitProjects/rbt-自检app/app/build/intermediates/transforms/dex/release/folders/1000/4/rbt-自检app-alphasdk-release-unspecified_44d53a55020ca0460f9a9c50a200ced6925d09fa/classes.dex" />
+    </item>
+    <item
+        jar="/Users/jinlongfeng/GitProjects/rbt-自检app/app/libs/gson-1.7.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="7291c9de7f574b15502f73f0ac2ae6d3af36c751">
+        <dex dex="/Users/jinlongfeng/GitProjects/rbt-自检app/app/build/intermediates/transforms/dex/release/folders/1000/2/gson-1.7.1_cdfd7eaaca495a766a2e2e47acf443a77da501fa/classes.dex" />
+    </item>
+
+</items>

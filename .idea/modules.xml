@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FactoryTest.iml" filepath="$PROJECT_DIR$/FactoryTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/ToggleButtonLib/ToggleButtonLib.iml" filepath="$PROJECT_DIR$/ToggleButtonLib/ToggleButtonLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alphasdk-release/alphasdk-release.iml" filepath="$PROJECT_DIR$/alphasdk-release/alphasdk-release.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rbt-自检app.iml" filepath="$PROJECT_DIR$/rbt-自检app.iml" />
     </modules>
   </component>
 </project>

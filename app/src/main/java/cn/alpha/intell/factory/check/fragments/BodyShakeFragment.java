@@ -1,6 +1,8 @@
 package cn.alpha.intell.factory.check.fragments;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -94,7 +96,15 @@ public class BodyShakeFragment extends Fragment {
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlphaSDK.getInstance().bodyShake(null);
+                //AlphaSDK.getInstance().bodyShake(null);
+
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                intent.putExtra("flag",0x02);
+
+                ComponentName cn = new ComponentName("com.example.alphasdkdemotest02", "com.example.alphasdkdemotest02.MainActivity");
+                intent.setComponent(cn);
+                startActivity(intent);
             }
         });
         checkResult();
