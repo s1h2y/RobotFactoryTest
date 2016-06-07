@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -164,10 +167,14 @@ public class ButtonsFragment extends Fragment implements CompoundButton.OnChecke
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
+                keyTime = SystemClock.uptimeMillis();
+                mHandler.removeMessages(KeyEvent.KEYCODE_VOLUME_UP);
                 mButtons.setImageResource(R.drawable.button_vol_up);
                 mCheckUp.setEnabled(false);
                 return true;
             case KeyEvent.KEYCODE_VOLUME_DOWN:
+                keyTime = SystemClock.uptimeMillis();
+                mHandler.removeMessages(KeyEvent.KEYCODE_VOLUME_DOWN);
                 mButtons.setImageResource(R.drawable.button_vol_down);
                 mCheckDown.setEnabled(false);
                 return true;
@@ -183,11 +190,32 @@ public class ButtonsFragment extends Fragment implements CompoundButton.OnChecke
         return false;
     }
 
+    private long keyVolUpTime = 0;
+    private long keyVolDownTime = 0;
+    private long keyTime = 0;
+    private Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case KeyEvent.KEYCODE_VOLUME_UP:
+                case KeyEvent.KEYCODE_VOLUME_DOWN:
+                    mButtons.setImageResource(R.drawable.buttons_background);
+                    break;
+            }
+        }
+    };
+
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
             case KeyEvent.KEYCODE_VOLUME_DOWN:
+                mHandler.sendEmptyMessageDelayed(keyCode, SystemClock.uptimeMillis() - keyTime);
+                return true;
             case KeyEvent.KEYCODE_D:
+                mButtons.setImageResource(R.drawable.buttons_background);
+                return true;
             case KeyEvent.KEYCODE_BACK:
                 mButtons.setImageResource(R.drawable.buttons_background);
                 return true;
