@@ -1,6 +1,8 @@
 package cn.alpha.intell.factory.check.fragments;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,8 +36,9 @@ public class VersionFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     ListView mList;
-    int item_keys[] = {R.string.item_version, R.string.seq, R.string.soc_manufacturer};
+    int item_keys[] = {R.string.cur_verison, R.string.item_version, R.string.seq, R.string.soc_manufacturer};
     String item_values[] = new String[item_keys.length];
+    private Context mContext;
 
     class MyAdapter extends BaseAdapter {
 
@@ -112,13 +115,27 @@ public class VersionFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        mContext = getActivity();
         prepareData();
     }
 
     private void prepareData() {
-        item_values[0] = Build.VERSION.RELEASE;
-        item_values[1] = Build.SERIAL;
-        item_values[2] = Build.PRODUCT;
+        item_values[0] = getAPPVersionNameFromAPP(mContext);
+        item_values[1] = Build.VERSION.RELEASE;
+        item_values[2] = Build.SERIAL;
+        item_values[3] = Build.PRODUCT;
+    }
+
+    private String getAPPVersionNameFromAPP(Context ctx) {
+        String appVersionName = "";
+        PackageManager manager = ctx.getPackageManager();
+        try {
+            PackageInfo info = manager.getPackageInfo(ctx.getPackageName(), 0);
+            appVersionName = info.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return appVersionName;
     }
 
     @Override

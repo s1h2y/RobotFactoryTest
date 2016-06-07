@@ -40,6 +40,7 @@
     <string name="list_speech_recognize">语音识别</string>
 
     <!-- version items -->
+    <string name="cur_verison">质检程序版本</string>
     <string name="item_version">系统版本</string>
     <string name="seq">序列号</string>
     <string name="lcd_manufacturer">LCD厂商</string>
