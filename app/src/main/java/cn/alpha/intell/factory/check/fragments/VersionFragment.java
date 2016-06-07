@@ -34,8 +34,7 @@ public class VersionFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     ListView mList;
-    int item_keys[] = {R.string.item_version, R.string.seq, R.string.lcd_manufacturer,
-            R.string.ddr_manufacturer, R.string.soc_manufacturer};
+    int item_keys[] = {R.string.item_version, R.string.seq, R.string.soc_manufacturer};
     String item_values[] = new String[item_keys.length];
 
     class MyAdapter extends BaseAdapter {
@@ -120,8 +119,6 @@ public class VersionFragment extends Fragment {
         item_values[0] = Build.VERSION.RELEASE;
         item_values[1] = Build.SERIAL;
         item_values[2] = Build.PRODUCT;
-        item_values[3] = Build.BOARD;
-        item_values[4] = Build.MANUFACTURER;
     }
 
     @Override

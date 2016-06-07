@@ -40,8 +40,8 @@ public class StorageFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private Context mContext;
     ListView mList;
-    int item_keys[] = {R.string.system_total, R.string.system_used, R.string.system_avail,
-            R.string.extern_total, R.string.extern_used, R.string.extern_avail};
+    int item_keys[] = {R.string.system_total, R.string.system_avail,
+            R.string.extern_total, R.string.extern_avail};
     String item_values[] = new String[item_keys.length];
 
     class MyAdapter extends BaseAdapter {
@@ -126,11 +126,11 @@ public class StorageFragment extends Fragment {
     private void prepareData() {
         item_values[0] = "" + Environment.getDataDirectory().getTotalSpace() / 1024 / 1024 + " MB";
         item_values[1] = "" + Environment.getDataDirectory().getUsableSpace() / 1024 / 1024 + " MB";
-        item_values[2] = "" + Environment.getDataDirectory().getFreeSpace() / 1024 / 1024 + " MB";
 
-        item_values[3] = "" + Environment.getExternalStorageDirectory().getTotalSpace() / 1024 / 1024 + " MB";
-        item_values[4] = "" + Environment.getExternalStorageDirectory().getUsableSpace() / 1024 / 1024 + " MB";
-        item_values[5] = "" + Environment.getExternalStorageDirectory().getFreeSpace() / 1024 / 1024 + " MB";
+
+        item_values[2] = "" + Environment.getExternalStorageDirectory().getTotalSpace() / 1024 / 1024 + " MB";
+        item_values[3] = "" + Environment.getExternalStorageDirectory().getUsableSpace() / 1024 / 1024 + " MB";
+
     }
 
     @Override
